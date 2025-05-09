@@ -1,25 +1,24 @@
 import 'dart:math';
+import 'dart:ui';
 
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dartby/dotby.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:particles_flutter/component/particle/particle.dart';
 import 'package:particles_flutter/particles_engine.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
-class Project extends StatefulWidget {
-  const Project({super.key});
+class Project2 extends StatefulWidget {
+  const Project2({super.key});
 
   @override
-  State<Project> createState() => _ProjectState();
+  State<Project2> createState() => _Project2State();
 }
 
-class _ProjectState extends State<Project> {
-   final _advancedDrawerController = AdvancedDrawerController();
+class _Project2State extends State<Project2> {
 
    final Uri githubUrl = Uri.parse('https://github.com/dbeum');
 
@@ -74,70 +73,106 @@ class _ProjectState extends State<Project> {
       throw 'Could not open email app';
     }
   }
-
+  
   @override
   Widget build(BuildContext context) {
- 
-    return  AdvancedDrawer(
-      backdrop: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF363941), Colors.black],
-          ),
-        ),
-      ),
-      controller: _advancedDrawerController,
-      animationCurve: Curves.easeInOut,
-      animationDuration: const Duration(milliseconds: 300),
-      animateChildDecoration: true,
-      rtlOpening: false,
-      // openScale: 1.0,
-      disabledGestures: false,
-      childDecoration: const BoxDecoration(
-        // NOTICE: Uncomment if you want to add shadow behind the page.
-        // Keep in mind that it may cause animation jerks.
-        // boxShadow: <BoxShadow>[
-        //   BoxShadow(
-        //     color: Colors.black12,
-        //     blurRadius: 0.0,
-        //   ),
-        // ],
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-      ),
-    
-   child:  Scaffold (
-      extendBodyBehindAppBar: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.transparent,
-      elevation:0,
-       leading: IconButton(
-            onPressed: _handleMenuButtonPressed,
-            icon: ValueListenableBuilder<AdvancedDrawerValue>(
-              valueListenable: _advancedDrawerController,
-              builder: (_, value, __) {
-                return AnimatedSwitcher(
-                  duration: Duration(milliseconds: 250),
-                  child: Icon(
-                    value.visible ? Icons.clear : Icons.menu,
-                    key: ValueKey<bool>(value.visible),
+    return Scaffold(
+         backgroundColor: Colors.white,
+      appBar: AppBar(
+actions: [
+   
+TextButton(
+  onPressed: () {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: "Menu",
+      barrierColor: Colors.black.withOpacity(0.5),
+      pageBuilder: (context, anim1, anim2) {
+        return BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: Center(
+            child: Material(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(20),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+              
+                      Container(
+                  width: 200.0,
+                  height: 200.0,
+                  margin: const EdgeInsets.only(
+                    top: 24.0,
+                    bottom: 64.0,
                   ),
-                );
-              },
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: Colors.black26,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    'assets/images/IMG_2598.jpg',
+                  ),
+                ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+TextButton(onPressed:  _launchlink, child: Image.asset( 'assets/images/linkedin.png' ,height: 30,)),
+TextButton(onPressed:  _launchgithub, child: Image.asset( 'assets/images/github.png' ,height: 30,)),
+TextButton(onPressed:  _launchEmail, child: Image.asset( 'assets/images/gmail.png' ,height: 25,)),
+TextButton(onPressed:  (){}, child: Image.asset( 'assets/images/whatsapp.png' ,height: 30,)),
+                    ],),
+                //    ListTile(
+                //   onTap: _launchlink,
+                //   leading:  Image.asset( 'assets/images/linkedin.png' ,height: 30,),
+                //   title: Text('LinkedIn'),
+                // ),
+                // ListTile(
+                //   onTap: _launchgithub,
+                //   leading: Image.asset( 'assets/images/github.png' ,height: 30,),
+                //   title: Text('Github'),
+                // ),
+                // ListTile(
+                //   onTap: _launchEmail,
+                //   leading: Image.asset( 'assets/images/gmail.png' ,height: 25,),
+                //   title: Text('Mail'),
+                // ),
+                // ListTile(
+                //   onTap: () {},
+                //   leading:  Image.asset( 'assets/images/whatsapp.png' ,height: 30,),
+                //   title: Text('Whatsapp'),
+                // ),
+                  
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
-      body: SingleChildScrollView(child: Column(children: [
-Container(
-  width: double.infinity,
+        );
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        return FadeTransition(opacity: anim1, child: child);
+      },
+      transitionDuration: const Duration(milliseconds: 200),
+    );
+  },
+  child: Icon(Icons.menu, color: Colors.black, size: 30),
+),
+],
+     backgroundColor: Colors.white,
+     elevation: 0,
+      scrolledUnderElevation: 0,
+      ),
+body: SingleChildScrollView(child: Column(children: [
+ Container(
   height: 500,
-  color: Colors.white, // or whatever background you want behind the particles
-  child: Stack(children: [
+
+  child:  Stack(children: [
     Particles(
-    height: 500,
+    height:500,
     width: MediaQuery.of(context).size.width,
     awayRadius: 150,
     particles: createParticles(),
@@ -148,7 +183,7 @@ Container(
     hoverRadius: 90,
     connectDots: false,
   ),
-  Positioned.fill(child: Align(alignment: Alignment.center,
+    Positioned.fill(child: Align(alignment: Alignment.center,
   child:Container(
         alignment: Alignment.center,
         height: 100,
@@ -179,17 +214,17 @@ loop: true,
 transitionTime: const Duration(seconds: 4),
 ),),
   ))
-  ],)
-),
-SizedBox(height: 20,),
+],),),
+SizedBox(height: 50,),
 Center(child: Container(
   padding: EdgeInsets.all(20),
-  child: Text('I’m Isaac, a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',style: GoogleFonts.luckiestGuy(),
+  child: Text('I’m Isaac, a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
+  style: GoogleFonts.luckiestGuy(color: Colors.black),
 textAlign: TextAlign.center,softWrap: true),
 )
 ),
 SizedBox(height: 50,),
-Center(child: Text('My Work',style: GoogleFonts.alfaSlabOne(fontSize: 30,)),),
+Center(child: Text('My Work',style: GoogleFonts.alfaSlabOne(fontSize: 30,color: Colors.black)),),
 SizedBox(height: 20,),
         CarouselSlider(
                     options: CarouselOptions(
@@ -226,24 +261,24 @@ SizedBox(height: 20,),
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child:Image.asset( 'assets/images/dotby.png' ,height: 250,) 
+              child:Image.asset( 'images/dotby1.jpg' ,height: 250,) 
               )),),
              
               Column(
                 children: [
-                  Text('Dotby Production', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                  Text('Dotby Production', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900,color: Colors.black ))),
                   Row(children: [
                     
-                  const    Text('Platform:',style:TextStyle(color: Color.fromARGB(164, 0, 0, 0),fontWeight: FontWeight.bold)),
+                  const    Text('Platform:',style:TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
                SizedBox(width: 2,),
                   Text('Flutter Web'),
                
                     
                   ],),
                 
-Container(width: 170,
+Container(width: 500,
 child:   Text('A full-featured platform built for a creative media agency. It allows users to rent equipment, book event coverage, apply as vendors, and explore services — all in one seamless, responsive experience.',
-style: TextStyle(fontSize: 12),
+style: TextStyle(fontSize: 15,color: Colors.black),
 textAlign: TextAlign.center,softWrap: true,),)
  
                
@@ -287,19 +322,19 @@ textAlign: TextAlign.center,softWrap: true,),)
             
               Column(
                 children: [
-                  Text('Dotby Production', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                  Text('Dotby Production', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900,color: Colors.black ))),
                   Row(children: [
                     
-                  const    Text('Platform:',style:TextStyle(color: Color.fromARGB(164, 0, 0, 0),fontWeight: FontWeight.bold)),
+                  const    Text('Platform:',style:TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
                SizedBox(width: 2,),
                   Text('Flutter Mobile'),
                
                     
                   ],),
                 
-Container(width: 170,
+Container(width: 600,
 child:   Text('A sleek, cross-platform app that mirrors the company’s full services: users can book event coverage, rent media equipment, sign up as vendors, and explore offerings — all from their phones, with a smooth and intuitive interface.',
-style: TextStyle(fontSize: 12),
+style: TextStyle(fontSize: 15,color: Colors.black,),
 textAlign: TextAlign.center,softWrap: true,),)
  
                 ],
@@ -371,83 +406,12 @@ textAlign: TextAlign.center,softWrap: true,),)
   //       ),
        ],
         ),
-      ],),)
-      ),
-       drawer: SafeArea(
-        child: Container(
-          child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: 128.0,
-                  height: 128.0,
-                  margin: const EdgeInsets.only(
-                    top: 24.0,
-                    bottom: 64.0,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/images/IMG_2598.jpg',
-                  ),
-                ),
-                ListTile(
-                  onTap: _launchlink,
-                  leading:  Image.asset( 'assets/images/linkedin.png' ,height: 30,),
-                  title: Text('LinkedIn'),
-                ),
-                ListTile(
-                  onTap: _launchgithub,
-                  leading: Image.asset( 'assets/images/github.png' ,height: 30,),
-                  title: Text('Github'),
-                ),
-                ListTile(
-                  onTap: _launchEmail,
-                  leading: Image.asset( 'assets/images/gmail.png' ,height: 25,),
-                  title: Text('Mail'),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading:  Image.asset( 'assets/images/whatsapp.png' ,height: 30,),
-                  title: Text('Whatsapp'),
-                ),
-                Spacer(),
-                // DefaultTextStyle(
-                //   style: TextStyle(
-                //     fontSize: 12,
-                //     color: Colors.white54,
-                //   ),
-                //   child: Container(
-                //     margin: const EdgeInsets.symmetric(
-                //       vertical: 16.0,
-                //     ),
-                //     child: Text('Terms of Service | Privacy Policy'),
-                //   ),
-                // ),
-              ],
-            ),
-          ),
-        ),
-      ),
+],),)
     );
   }
-
-  void _handleMenuButtonPressed() {
-    // NOTICE: Manage Advanced Drawer state through the Controller.
-    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
-    _advancedDrawerController.showDrawer();
-  }
 }
-    
 
-
-    List<Particle> createParticles() {
+ List<Particle> createParticles() {
     var rng = Random();
     List<Particle> particles = [];
     for (int i = 0; i < 140; i++) {

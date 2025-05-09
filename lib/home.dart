@@ -1,4 +1,6 @@
-import 'package:dartby/about.dart';
+
+import 'package:dartby/project.dart';
+import 'package:dartby/project2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -33,35 +35,15 @@ class _HomeState extends State<Home> {
 
 
   Widget MobileNavBar() {
-  return Scaffold(
-    body:Stack(children:[
-      Container(
-      decoration:BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/back.jpg'),fit: BoxFit.cover)
-          ),
-        
-        child:   Container(
-            color: Colors.black.withOpacity(0.3),
-        )          
-    ),
-    home1(),
-  
-    ],
-     ),
+  return     Project();
      
-  );
+
   }
      
 
   Widget DeskTopNavBar() {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-
-          ],
-        ),
-      )
-    );
+    return Project2();
+    
   
 }
 
