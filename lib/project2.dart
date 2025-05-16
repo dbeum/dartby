@@ -4,6 +4,8 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dartby/dotby.dart';
+import 'package:dartby/mobile.dart';
+import 'package:dartby/web.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:particles_flutter/component/particle/particle.dart';
@@ -19,7 +21,7 @@ class Project2 extends StatefulWidget {
 }
 
 class _Project2State extends State<Project2> {
-
+  bool isDarkMode = false;
    final Uri githubUrl = Uri.parse('https://github.com/dbeum');
 
  
@@ -57,6 +59,16 @@ class _Project2State extends State<Project2> {
       throw 'Could not launch $linkUrl';
     }
   }
+
+  final Uri weatherUrl = Uri.parse('https://weather-30f59.web.app/');
+
+ 
+  Future<void> _launchweather() async {
+    // Use launchUrl for web compatibility
+    if (!await launchUrl(weatherUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $weatherUrl';
+    }
+  }
   final String email = 'entrydirect@gmail.com';
 
   // Function to open email app
@@ -76,8 +88,9 @@ class _Project2State extends State<Project2> {
   
   @override
   Widget build(BuildContext context) {
+     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-         backgroundColor: Colors.white,
+         backgroundColor: isDarkMode ?   Color.fromARGB(255, 22, 22, 22): Colors.white,
       appBar: AppBar(
 actions: [
    
@@ -101,22 +114,22 @@ TextButton(
                   mainAxisSize: MainAxisSize.min,
                   children: [
               
-                      Container(
-                  width: 200.0,
-                  height: 200.0,
-                  margin: const EdgeInsets.only(
-                    top: 24.0,
-                    bottom: 64.0,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/images/IMG_2598.jpg',
-                  ),
-                ),
+                //       Container(
+                //   width: 200.0,
+                //   height: 200.0,
+                //   margin: const EdgeInsets.only(
+                //     top: 24.0,
+                //     bottom: 64.0,
+                //   ),
+                //   clipBehavior: Clip.antiAlias,
+                //   decoration: BoxDecoration(
+                //     color: Colors.black26,
+                //     shape: BoxShape.circle,
+                //   ),
+                //   child: Image.asset(
+                //     'assets/images/IMG_2598.jpg',
+                //   ),
+                // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -125,27 +138,7 @@ TextButton(onPressed:  _launchgithub, child: Image.asset( 'assets/images/github.
 TextButton(onPressed:  _launchEmail, child: Image.asset( 'assets/images/gmail.png' ,height: 25,)),
 TextButton(onPressed:  (){}, child: Image.asset( 'assets/images/whatsapp.png' ,height: 30,)),
                     ],),
-                //    ListTile(
-                //   onTap: _launchlink,
-                //   leading:  Image.asset( 'assets/images/linkedin.png' ,height: 30,),
-                //   title: Text('LinkedIn'),
-                // ),
-                // ListTile(
-                //   onTap: _launchgithub,
-                //   leading: Image.asset( 'assets/images/github.png' ,height: 30,),
-                //   title: Text('Github'),
-                // ),
-                // ListTile(
-                //   onTap: _launchEmail,
-                //   leading: Image.asset( 'assets/images/gmail.png' ,height: 25,),
-                //   title: Text('Mail'),
-                // ),
-                // ListTile(
-                //   onTap: () {},
-                //   leading:  Image.asset( 'assets/images/whatsapp.png' ,height: 30,),
-                //   title: Text('Whatsapp'),
-                // ),
-                  
+           
                   ],
                 ),
               ),
@@ -162,251 +155,269 @@ TextButton(onPressed:  (){}, child: Image.asset( 'assets/images/whatsapp.png' ,h
   child: Icon(Icons.menu, color: Colors.black, size: 30),
 ),
 ],
-     backgroundColor: Colors.white,
+     backgroundColor: isDarkMode ?   Color.fromARGB(255, 22, 22, 22): Colors.white,
      elevation: 0,
       scrolledUnderElevation: 0,
       ),
-body: SingleChildScrollView(child: Column(children: [
- Container(
-  height: 500,
-
-  child:  Stack(children: [
-    Particles(
-    height:500,
-    width: MediaQuery.of(context).size.width,
-    awayRadius: 150,
-    particles: createParticles(),
-    onTapAnimation: true,
-    awayAnimationDuration: const Duration(milliseconds: 100),
-    awayAnimationCurve: Curves.linear,
-    enableHover: true,
-    hoverRadius: 90,
-    connectDots: false,
-  ),
-    Positioned.fill(child: Align(alignment: Alignment.center,
-  child:Container(
-        alignment: Alignment.center,
-        height: 100,
-        child:  TextAnimatorSequence(
-          
+body: SingleChildScrollView(child:Center(child:  Column(
   children: [
-      TextAnimator('Welcome',
-        incomingEffect: WidgetTransitionEffects.incomingScaleDown(),
-        atRestEffect: WidgetRestingEffects.bounce(),
-        outgoingEffect: WidgetTransitionEffects.outgoingScaleUp(),
-       style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, color: Colors.black, letterSpacing: -2, fontSize: 45))
-     ),
-      TextAnimator('Hi, I\'m Isaac',
-        incomingEffect: WidgetTransitionEffects.incomingSlideInFromLeft(),
-        atRestEffect: WidgetRestingEffects.fidget(),
-        outgoingEffect: WidgetTransitionEffects.outgoingSlideOutToBottom(),
-       style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, color: Color.fromARGB(255, 40, 53, 147), letterSpacing: -2, fontSize: 45))
-      ),
-      TextAnimator('A Software Developer',
-        incomingEffect: WidgetTransitionEffects(blur: const Offset(2, 2), duration: const Duration(milliseconds: 600)),
-        atRestEffect: WidgetRestingEffects.wave(),
-        outgoingEffect: WidgetTransitionEffects(blur: const Offset(2, 2), duration: const Duration(milliseconds: 600)),
-       style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, color: Color.fromARGB(255,176, 190, 197), letterSpacing: -2, fontSize: 30))
-    ),
-  ],
-tapToProceed: true,
-loop: true,
-transitionTime: const Duration(seconds: 4),
-),),
-  ))
-],),),
-SizedBox(height: 50,),
-Center(child: Container(
+
+ Container(
+  height: 550,
+  width: MediaQuery.of(context).size.width * 0.9, 
   padding: EdgeInsets.all(20),
-  child: Text('I’m Isaac, a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
-  style: GoogleFonts.luckiestGuy(color: Colors.black),
-textAlign: TextAlign.center,softWrap: true),
-)
+  decoration: BoxDecoration(color: isDarkMode ?   Color.fromARGB(255, 27, 27, 27): Colors.white,
+  border: Border.all(color: Color.fromARGB(255, 38, 38, 38),width: 1),
+  borderRadius: BorderRadius.all(Radius.circular(10))),
+  child: Column(
+   
+    children: [
+
+
+ 
+ SizedBox(height: 20,),
+  Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+    SizedBox(width: 10,),
+    Text('App/Web Developer',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192)),),
+  SizedBox(width: 200,),
+   Container(height: 30,
+width: 150,
+decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(15)),
+color:Color.fromARGB(255, 22, 22, 22),
+border: Border.all(width: 2,color: Color.fromARGB(255, 38, 38, 38))
 ),
+child: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+  Icon(Icons.circle,color: Color.fromARGB(255, 230, 62, 33),size: 15,),
+
+  Text('AVAILABLE FOR JOB',style: TextStyle(fontSize: 10,color: Color.fromARGB(255, 192, 192, 192)),)
+],),
+)
+  ],),
+  
+SizedBox(height: 100,),
+
+   Row(mainAxisAlignment: MainAxisAlignment.start,
+  children: [
+    SizedBox(width: 10,),
+
+       Text('I\'m Isaac',style: TextStyle(fontSize: 40,color: isDarkMode? Colors.white:Colors.black),),
+
+
+  ],),
+   SizedBox(height: 10,),
+   Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+ Container(
+  width: 600,
+
+  child: Text('I’m a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
+  style: GoogleFonts.inter(color: Color.fromARGB(255, 192, 192, 192)),
+textAlign: TextAlign.start,softWrap: true),
+),
+
+ 
+
+
+  Container(
+                  width: 150.0,
+                  height: 150.0,
+                  margin: const EdgeInsets.only(
+                    top: 20.0,
+                    bottom: 20.0,
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: Colors.black26,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    'assets/images/IMG_2598.jpg',
+                  ),
+                ),
+
+ 
+   ],),
+ 
+  SizedBox(height: 20,),
+Row(mainAxisAlignment: MainAxisAlignment.start,
+children: [
+  SizedBox(width: 10,),
+  Container(height: 30,
+  width: 67,
+  decoration: BoxDecoration(color: Color.fromARGB(255, 230, 62, 33),
+  borderRadius: BorderRadius.all(Radius.circular(5)),
+  boxShadow: [
+      BoxShadow(
+        color:  isDarkMode ?   Colors.white.withOpacity(0.2):Colors.black.withOpacity(0.2),
+        spreadRadius: 2,
+        blurRadius: 5,
+        offset: Offset(0, 3), // horizontal, vertical shadow offset
+      ),
+    ], ),
+  child: TextButton(onPressed:(){}, child: Text('Hire Me',style: TextStyle(fontSize: 12,color: Colors.white),)
+  )
+  ),
+]
+  )
+
+],)),
+
 SizedBox(height: 50,),
-Center(child: Text('My Work',style: GoogleFonts.alfaSlabOne(fontSize: 30,color: Colors.black)),),
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [Container(
+  height: 200,
+  width: 400,
+  padding: EdgeInsets.all(15),
+  decoration: BoxDecoration(color:isDarkMode ?   Color.fromARGB(255, 27, 27, 27): Colors.white,
+  border: Border.all(color: Color.fromARGB(255, 38, 38, 38),width: 1),
+  borderRadius: BorderRadius.all(Radius.circular(10))),
+  child: Column(
+   
+    children: [
+
+
+
+ Row(
+ 
+  children: [
+  Icon(Icons.circle,color: Color.fromARGB(255, 192, 192, 192),size: 12,),
+SizedBox(width: 10,),
+  Text('Recent Work',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192)),)
+],),
+
+
+ SizedBox(height: 20,),
+  Row(
+   // mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+    SizedBox(width: 10,),
+    Text('Moon Weather',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 230, 62, 33),fontWeight: FontWeight.bold),),
+    SizedBox(width: 10,),
+    Text('Flutter Web',style: TextStyle(fontSize: 15,color:  Color.fromARGB(255, 192, 192, 192)))
+  ],),
+  SizedBox(height: 10,),
+  Row(
+ 
+    children: [
+    SizedBox(width: 10,),
+    Text('Dotby Productions',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 230, 62, 33),fontWeight: FontWeight.bold),),
+    SizedBox(width: 10,),
+    Text('Flutter Web',style: TextStyle(fontSize: 15,color:  Color.fromARGB(255, 192, 192, 192)))
+  ],),
+   SizedBox(height: 10,),
+  Row(
+
+    children: [
+    SizedBox(width: 10,),
+    Text('Dotby Productions',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 230, 62, 33),fontWeight: FontWeight.bold),),
+    SizedBox(width: 10,),
+    Text('Flutter Mobile',style: TextStyle(fontSize: 15,color:  Color.fromARGB(255, 192, 192, 192)))
+  ],),
+],)),
+TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mobile()));
+}, child: Container(
+  height: 430,
+  width: 400,
+  padding: EdgeInsets.all(15),
+  decoration: BoxDecoration(color:isDarkMode ?   Color.fromARGB(255, 27, 27, 27): Colors.white,
+  border: Border.all(color: Color.fromARGB(255, 38, 38, 38),width: 1),
+  borderRadius: BorderRadius.all(Radius.circular(10))),
+  child: Column(
+   
+    children: [
+
+
+
+ Row(
+  mainAxisAlignment: MainAxisAlignment.start ,
+  children: [
+  Icon(Icons.arrow_circle_up_rounded,color:  Color.fromARGB(255, 230, 62, 33),size: 20,),
+SizedBox(width: 10,),
+  Text('Mobile App',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192)),)
+],),
+
+
+ SizedBox(height: 20,),
+ Image.asset('assets/images/Mockup.png')
+],)),),
+TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Web()));}, child: Container(
+  height: 350,
+  width: 400,
+  padding: EdgeInsets.all(15),
+  decoration: BoxDecoration(color: isDarkMode ?   Color.fromARGB(255, 27, 27, 27): Colors.white,
+  border: Border.all(color: Color.fromARGB(255, 38, 38, 38),width: 1),
+  borderRadius: BorderRadius.all(Radius.circular(10))),
+  child: Column(
+   
+    children: [
+
+
+
+ Row(
+  mainAxisAlignment: MainAxisAlignment.start ,
+  children: [
+  Icon(Icons.arrow_circle_up_rounded,color:  Color.fromARGB(255, 230, 62, 33),size: 20,),
+SizedBox(width: 10,),
+  Text('Web App',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192)),)
+],),
+
+
+ SizedBox(height: 50,),
+ Image.asset('assets/images/groupweb.png',height:200)
+],)),),
+],),
 SizedBox(height: 20,),
-        CarouselSlider(
-                    options: CarouselOptions(
-                      height: 650.0,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      aspectRatio: 16 / 9,
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enableInfiniteScroll: true,
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      viewportFraction: 0.8,
-                    ),
-            items:[
+Container(
+  height: 150,
+  width: 400,
+  padding: EdgeInsets.all(15),
+  decoration: BoxDecoration(color: isDarkMode ?   Color.fromARGB(255, 27, 27, 27): Colors.white,
+  border: Border.all(color: Color.fromARGB(255, 38, 38, 38),width: 1),
+  borderRadius: BorderRadius.all(Radius.circular(10))),
+  child: Column(
+   
+    children: [
 
 
-              //ITEM 1
+
+ Container(height: 30,
+width: 150,
+decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(15)),
+color:Color.fromARGB(255, 22, 22, 22),
+border: Border.all(width: 2,color: Color.fromARGB(255, 38, 38, 38))
+),
+child: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+  Icon(Icons.circle,color: Color.fromARGB(255, 230, 62, 33),size: 15,),
+
+  Text('AVAILABLE FOR JOB',style: TextStyle(fontSize: 10,color: Color.fromARGB(255, 192, 192, 192) ),)
+],),
+),
 
 
-      Column(
-          children:[
-                Align(alignment: Alignment.topCenter,
-            child: Image.asset( 'assets/images/logo1.png' ,height: 100,)
-            ),
-            Row(children: [
-               TextButton(onPressed:_launchdotby, child:   Container(
-      
-            padding: EdgeInsets.all(2.0), 
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              border: Border.all(
-                color: Colors.black, 
-                width: 2.0, 
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child:Image.asset( 'images/dotby1.jpg' ,height: 250,) 
-              )),),
-             
-              Column(
-                children: [
-                  Text('Dotby Production', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900,color: Colors.black ))),
-                  Row(children: [
-                    
-                  const    Text('Platform:',style:TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
-               SizedBox(width: 2,),
-                  Text('Flutter Web'),
-               
-                    
-                  ],),
-                
-Container(width: 500,
-child:   Text('A full-featured platform built for a creative media agency. It allows users to rent equipment, book event coverage, apply as vendors, and explore services — all in one seamless, responsive experience.',
-style: TextStyle(fontSize: 15,color: Colors.black),
-textAlign: TextAlign.center,softWrap: true,),)
+ SizedBox(height: 20,),
+  Row(
+   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+
+    TextButton(onPressed: _launchgithub, child: Text('GitHub',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 230, 62, 33),fontWeight: FontWeight.bold),)),
+     TextButton(onPressed: _launchEmail, child: Text('Mail',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold),)),
+    TextButton(onPressed: (){}, child: Text('GitHub',style: TextStyle(fontSize: 17,color:  Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold),)),
+  ],),
+  SizedBox(height: 10,),
  
-               
-                ],
-              )
-            ],),
-             Align(alignment: Alignment.centerRight,
-            child: Image.asset( 'assets/images/web.png' ,height: 100,)
-            ),
-            // Align(alignment: Alignment.bottomCenter,
-            // child: Image.asset( 'assets/images/android.png' ,height: 100,)
-            // ),
-
-          ] ,
-        ),
-
-
-        //ITEM 2
-
-
-          Column(
-          children:[
-                Align(alignment: Alignment.topCenter,
-            child: Image.asset( 'assets/images/logo1.png' ,height: 100,)
-            ),
-            Row(children: [
-               TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Dotby()));}, child:   Container(
-      
-            padding: EdgeInsets.all(2.0), 
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0), 
-              border: Border.all(
-                color: Colors.black, 
-                width: 2.0, 
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child:Image.asset( 'assets/images/dotby2.png' ,height: 250,) 
-              )),),
-            
-              Column(
-                children: [
-                  Text('Dotby Production', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900,color: Colors.black ))),
-                  Row(children: [
-                    
-                  const    Text('Platform:',style:TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
-               SizedBox(width: 2,),
-                  Text('Flutter Mobile'),
-               
-                    
-                  ],),
-                
-Container(width: 600,
-child:   Text('A sleek, cross-platform app that mirrors the company’s full services: users can book event coverage, rent media equipment, sign up as vendors, and explore offerings — all from their phones, with a smooth and intuitive interface.',
-style: TextStyle(fontSize: 15,color: Colors.black,),
-textAlign: TextAlign.center,softWrap: true,),)
- 
-                ],
-              )
-            ],),
-             Align(alignment: Alignment.centerRight,
-            child: Image.asset( 'assets/images/app.png' ,height: 100,)
-            ),
-           Align(alignment: Alignment.bottomCenter,
-            child: Image.asset( 'assets/images/android.png' ,height: 100,)
-            ),
-
-          ] ,
-        ),
-
-        //ITEM 3
-
-  //         Column(
-  //         children:[
-  //               Align(alignment: Alignment.topCenter,
-  //           child: Image.asset( 'images/logo.png' ,height: 100,)
-  //           ),
-  //           Row(children: [
-  //              TextButton(onPressed: () {
-                 
-  //              }, child:   Container(
-      
-  //           padding: EdgeInsets.all(2.0), // Adjust the border width here
-  //           decoration: BoxDecoration(
-  //             borderRadius: BorderRadius.circular(15.0), // Adjust the radius here
-  //             border: Border.all(
-  //               color: Colors.black, // Change the border color here
-  //               width: 2.0, // Adjust the border thickness here
-  //             ),
-  //           ),
-  //           child: ClipRRect(
-  //             borderRadius: BorderRadius.circular(15.0),
-  //             child:Image.asset( 'images/IMG_3285.jpg' ,height: 250,) 
-  //             )),),
-  //             SizedBox(width: 2,),
-  //             Column(
-  //               children: [
-  //                 Text('Cinema Booking App', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
-  //                 Row(children: [
-                    
-  //                 const    Text('Platform',style:TextStyle(color: Color.fromARGB(164, 0, 0, 0),fontWeight: FontWeight.bold)),
-  //              SizedBox(width: 2,),
-  //                 Text('Flutter'),
-               
-                    
-  //                 ],),
-                
-  // Text('An intuitive cinema booking app ',style: TextStyle(fontSize: 12),),
-  //   Text('that lets users browse movies,',style: TextStyle(fontSize: 12),),
-  //   Text('select showtimes, and reserve seats',style: TextStyle(fontSize: 12),),
-  //     Text('all in a few taps.',style: TextStyle(fontSize: 12),),
-               
-  //               ],
-  //             )
-  //           ],),
-  //            Align(alignment: Alignment.centerRight,
-  //           child: Image.asset( 'images/app.jpg' ,height: 100,)
-  //           ),
-  //           Align(alignment: Alignment.bottomCenter,
-  //           child: Image.asset( 'images/android.png' ,height: 100,)
-  //           ),
-
-  //         ] ,
-  //       ),
-       ],
-        ),
-],),)
+],)),
+SizedBox(height: 50,),
+Center(child: Text('Thank You!!',style: GoogleFonts.alfaSlabOne(fontSize: 30,)),),
+SizedBox(height: 20,),
+],),))
     );
   }
 }

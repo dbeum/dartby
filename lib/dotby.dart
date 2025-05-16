@@ -73,7 +73,7 @@ List<Container> cards = [
    Future<void> _checkIfOnboardingCompleted() async {
     final prefs = await SharedPreferences.getInstance();
     bool completed = prefs.getBool('onboardingCompleted') ?? false;
-    
+  
     if (!completed) {
       setState(() {
         _showOnboarding = true;
@@ -83,40 +83,13 @@ List<Container> cards = [
 
    void _markOnboardingAsComplete() async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('onboardingCompleted', true);
+    await prefs.setBool('onboardingCompleted', true);
 
     setState(() {
       _showOnboarding = false;
     });
   }
   
-
- @override
-  Widget build(BuildContext context) { 
-      
-      return Scaffold(
-      body: Stack(
-        children: [ ScreenTypeLayout.builder(
-      mobile: (BuildContext context) => MobileNavBar(),
-      desktop: (BuildContext context) => DeskTopNavBar(),
-       ),
-  
-  // Onboarding overlay
-          if (_showOnboarding)
-            Positioned.fill(
-              child: GestureDetector(
-                onTap: _markOnboardingAsComplete,
-                child: OnboardingOverlay(
-                  currentStep: _currentStep,
-                  onNext: _nextStep,
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-
   void _nextStep() {
     if (_currentStep < 2) {
       setState(() {
@@ -126,6 +99,19 @@ List<Container> cards = [
       _markOnboardingAsComplete();
     }
   }
+
+ @override
+  Widget build(BuildContext context) { 
+      
+    return ScreenTypeLayout.builder(
+      mobile: (BuildContext context) => MobileNavBar(),
+      desktop: (BuildContext context) => DeskTopNavBar(),
+       );
+  
+ 
+    
+  }
+
 
 
   Widget MobileNavBar() {
@@ -163,7 +149,18 @@ textAlign: TextAlign.center,softWrap: true,),),
           cardBuilder: (context, index, percentThresholdX, percentThresholdY) => cards[index],
         ),
       ),
-  ],),)
+  ],),),
+   // Onboarding overlay
+          if (_showOnboarding)
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: _markOnboardingAsComplete,
+                child: OnboardingOverlay(
+                  currentStep: _currentStep,
+                  onNext: _nextStep,
+                ),
+              ),
+            ),
       ],),
     );
 
@@ -208,7 +205,18 @@ textAlign: TextAlign.center,softWrap: true,),),
           cardBuilder: (context, index, percentThresholdX, percentThresholdY) => cards[index],
         ),
       ),
-  ],),)
+  ],),),
+   // Onboarding overlay
+          if (_showOnboarding)
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: _markOnboardingAsComplete,
+                child: OnboardingOverlay(
+                  currentStep: _currentStep,
+                  onNext: _nextStep,
+                ),
+              ),
+            ),
  
       ],),
       
