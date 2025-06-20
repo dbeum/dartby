@@ -14,7 +14,7 @@ class Web extends StatefulWidget {
 
 class _WebState extends State<Web> {
     bool isDarkMode = false;
-   final Uri dotbyUrl = Uri.parse('https://dotby-37e3f.web.app/');
+   final Uri dotbyUrl = Uri.parse('https://dotbyproductions.com/');
 
  
   Future<void> _launchdotby() async {
@@ -24,7 +24,25 @@ class _WebState extends State<Web> {
     }
   }
 
+  final Uri projectUrl = Uri.parse('https://project-p-48c57.web.app');
 
+ 
+  Future<void> _launchproject() async {
+    // Use launchUrl for web compatibility
+    if (!await launchUrl(projectUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $projectUrl';
+    }
+  }
+
+  final Uri experienceUrl = Uri.parse('https://fly3d-e0b37.web.app/');
+
+ 
+  Future<void> _launchexperience() async {
+    // Use launchUrl for web compatibility
+    if (!await launchUrl(experienceUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $experienceUrl';
+    }
+  }
  final Uri linkUrl = Uri.parse('https://www.linkedin.com/in/isaac-olowofela-b77767223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app');
 
  
@@ -199,7 +217,111 @@ textAlign: TextAlign.center,softWrap: true,),)
 
           ] ,
         ),
-  //       
+
+
+  //       ITEM 3
+   Column(
+          children:[
+                Align(alignment: Alignment.topCenter,
+            child: Image.asset( 'assets/images/logo.png' ,height: 100,)
+            ),
+            Row(children: [
+               TextButton(onPressed: _launchproject, child:   Container(
+      
+            padding: EdgeInsets.all(2.0), 
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0), 
+              border: Border.all(
+                color:  Color.fromARGB(255, 192, 192, 192), 
+                width: 2.0, 
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child:Image.asset( 'assets/images/projectm.png' ,height: 250,) 
+              )),),
+            
+              Column(
+                children: [
+                  Text('Moon Portfolio', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                  Row(children: [
+                    
+                  const    Text('Platform:',style:TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold)),
+               SizedBox(width: 2,),
+                  Text('Flutter Web'),
+               
+                    
+                  ],),
+                
+Container(width: 170,
+child:   Text('Launch Your Personal Website in Minutes.Pick a design, add your info — we’ll handle the rest. Create a stunning personal website effortlessly with ready-made templates, customized to showcase your work, identity, or brand in just a few clicks.',
+style: TextStyle(fontSize: 12),
+textAlign: TextAlign.center,softWrap: true,),)
+ 
+                ],
+              )
+            ],),
+   
+             Align(alignment: Alignment.centerRight,
+            child: Image.asset( 'assets/images/web.png' ,height: 100,)
+            ),
+          
+
+          ] ,
+        ),
+
+
+          //ITEM 4
+     Column(
+          children:[
+                Align(alignment: Alignment.topCenter,
+            child: Image.asset( 'assets/images/logo.png' ,height: 100,)
+            ),
+            Row(children: [
+               TextButton(onPressed: _launchexperience, child:   Container(
+      
+            padding: EdgeInsets.all(2.0), 
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0), 
+              border: Border.all(
+                color:  Color.fromARGB(255, 192, 192, 192), 
+                width: 2.0, 
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child:Image.asset( 'assets/images/3d.png' ,height: 100,) 
+              )),),
+            
+              Column(
+                children: [
+                  Text('Experience Site', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                  Row(children: [
+                    
+                  const    Text('Platform:',style:TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold)),
+               SizedBox(width: 2,),
+                  Text('Flutter Web'),
+               
+                    
+                  ],),
+                
+Container(width: 170,
+child:   Text('Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site — \'s an experience.',
+style: TextStyle(fontSize: 12),
+textAlign: TextAlign.center,softWrap: true,),)
+ 
+                ],
+              )
+            ],),
+                     SizedBox(height: 50,),
+             Align(alignment: Alignment.centerRight,
+            child: Image.asset( 'assets/images/web.png' ,height: 100,)
+            ),
+          
+
+          ] ,
+        ),
+        //
        ],
         ),
       )
@@ -263,7 +385,7 @@ textAlign: TextAlign.center,softWrap: true,),)
                     
                   ],),
                 
-Container(width: 170,
+Container(width: 400,
 child:   Text('A full-featured platform built for a creative media agency. It allows users to rent equipment, book event coverage, apply as vendors, and explore services — all in one seamless, responsive experience.',
 style: TextStyle(fontSize: 12),
 textAlign: TextAlign.center,softWrap: true,),)
@@ -318,7 +440,7 @@ textAlign: TextAlign.center,softWrap: true,),)
                     
                   ],),
                 
-Container(width: 170,
+Container(width: 400,
 child:   Text('Get accurate, real-time weather updates based on your location. See current conditions including temperature, \'feels like,\' daily highs and lows, humidity, and more — all in a simple, easy-to-use interface.',
 style: TextStyle(fontSize: 12),
 textAlign: TextAlign.center,softWrap: true,),)
@@ -333,7 +455,107 @@ textAlign: TextAlign.center,softWrap: true,),)
 
           ] ,
         ),
-  //       
+  //       ITEM 3
+   Column(
+          children:[
+                Align(alignment: Alignment.topCenter,
+            child: Image.asset( 'assets/images/logo.png' ,height: 100,)
+            ),
+            Row(children: [
+               TextButton(onPressed: _launchproject, child:   Container(
+      
+            padding: EdgeInsets.all(2.0), 
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0), 
+              border: Border.all(
+                color:  Color.fromARGB(255, 192, 192, 192), 
+                width: 2.0, 
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child:Image.asset( 'assets/images/project.png' ,height: 250,) 
+              )),),
+            
+              Column(
+                children: [
+                  Text('Moon Portfolio', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                  Row(children: [
+                    
+                  const    Text('Platform:',style:TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold)),
+               SizedBox(width: 2,),
+                  Text('Flutter Web'),
+               
+                    
+                  ],),
+                
+Container(width: 400,
+child:   Text('Launch Your Personal Website in Minutes.Pick a design, add your info — we’ll handle the rest. Create a stunning personal website effortlessly with ready-made templates, customized to showcase your work, identity, or brand in just a few clicks.',
+style: TextStyle(fontSize: 12),
+textAlign: TextAlign.center,softWrap: true,),)
+ 
+                ],
+              )
+            ],),
+             Align(alignment: Alignment.centerRight,
+            child: Image.asset( 'assets/images/web.png' ,height: 100,)
+            ),
+          
+
+          ] ,
+        ),
+
+
+              //ITEM 4
+     Column(
+          children:[
+                Align(alignment: Alignment.topCenter,
+            child: Image.asset( 'assets/images/logo.png' ,height: 100,)
+            ),
+            Row(children: [
+               TextButton(onPressed: _launchexperience, child:   Container(
+      
+            padding: EdgeInsets.all(2.0), 
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0), 
+              border: Border.all(
+                color:  Color.fromARGB(255, 192, 192, 192), 
+                width: 2.0, 
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child:Image.asset( 'assets/images/3d.png' ,height: 250,) 
+              )),),
+            
+              Column(
+                children: [
+                  Text('Experience Site', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                  Row(children: [
+                    
+                  const    Text('Platform:',style:TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold)),
+               SizedBox(width: 2,),
+                  Text('Flutter Web'),
+               
+                    
+                  ],),
+                
+Container(width: 400,
+child:   Text('Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site — \'s an experience.',
+style: TextStyle(fontSize: 12),
+textAlign: TextAlign.center,softWrap: true,),)
+ 
+                ],
+              )
+            ],),
+             Align(alignment: Alignment.centerRight,
+            child: Image.asset( 'assets/images/web.png' ,height: 100,)
+            ),
+          
+
+          ] ,
+        ),
+        //
        ],
         ),
       )
