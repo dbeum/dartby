@@ -1,27 +1,29 @@
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dartby/dotby.dart';
-import 'package:dartby/mobile.dart';
-import 'package:dartby/web.dart';
+import 'package:dartby/mobile%20apps/mobile.dart';
+import 'package:dartby/web%20apps/web.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:particles_flutter/component/particle/particle.dart';
 import 'package:particles_flutter/particles_engine.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
-class Project2 extends StatefulWidget {
-  const Project2({super.key});
+class Project extends StatefulWidget {
+  const Project({super.key});
 
   @override
-  State<Project2> createState() => _Project2State();
+  State<Project> createState() => _ProjectState();
 }
 
-class _Project2State extends State<Project2> {
+class _ProjectState extends State<Project> {
   bool isDarkMode = false;
+   final _advancedDrawerController = AdvancedDrawerController();
+
    final Uri githubUrl = Uri.parse('https://github.com/dbeum');
 
  
@@ -59,16 +61,6 @@ class _Project2State extends State<Project2> {
       throw 'Could not launch $linkUrl';
     }
   }
-
-  final Uri weatherUrl = Uri.parse('https://weather-30f59.web.app/');
-
- 
-  Future<void> _launchweather() async {
-    // Use launchUrl for web compatibility
-    if (!await launchUrl(weatherUrl, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $weatherUrl';
-    }
-  }
   final String email = 'entrydirect@gmail.com';
 
   // Function to open email app
@@ -85,87 +77,80 @@ class _Project2State extends State<Project2> {
       throw 'Could not open email app';
     }
   }
-  
+ final Uri weatherUrl = Uri.parse('https://weather-30f59.web.app/');
+
+ 
+  Future<void> _launchweather() async {
+    // Use launchUrl for web compatibility
+    if (!await launchUrl(weatherUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $weatherUrl';
+    }
+  }
   @override
   Widget build(BuildContext context) {
-     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return Scaffold(
-         backgroundColor: isDarkMode ?   Color.fromARGB(255, 22, 22, 22): Colors.white,
-      appBar: AppBar(
-actions: [
-   
-TextButton(
-  onPressed: () {
-    showGeneralDialog(
-      context: context,
-      barrierDismissible: true,
-      barrierLabel: "Menu",
-      barrierColor: Colors.black.withOpacity(0.5),
-      pageBuilder: (context, anim1, anim2) {
-        return BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Center(
-            child: Material(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(20),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-              
-                //       Container(
-                //   width: 200.0,
-                //   height: 200.0,
-                //   margin: const EdgeInsets.only(
-                //     top: 24.0,
-                //     bottom: 64.0,
-                //   ),
-                //   clipBehavior: Clip.antiAlias,
-                //   decoration: BoxDecoration(
-                //     color: Colors.black26,
-                //     shape: BoxShape.circle,
-                //   ),
-                //   child: Image.asset(
-                //     'assets/images/IMG_2598.jpg',
-                //   ),
-                // ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-TextButton(onPressed:  _launchlink, child: Image.asset( 'assets/images/linkedin.png' ,height: 30,)),
-TextButton(onPressed:  _launchgithub, child: Image.asset( 'assets/images/github.png' ,height: 30,)),
-TextButton(onPressed:  _launchEmail, child: Image.asset( 'assets/images/gmail.png' ,height: 25,)),
-TextButton(onPressed:  (){}, child: Image.asset( 'assets/images/whatsapp.png' ,height: 30,)),
-                    ],),
-           
-                  ],
-                ),
-              ),
+  bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return  AdvancedDrawer(
+      backdrop: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.black, Color.fromARGB(255,29, 31, 35)],
+          ),
+        ),
+      ),
+      controller: _advancedDrawerController,
+      animationCurve: Curves.easeInOut,
+      animationDuration: const Duration(milliseconds: 300),
+      animateChildDecoration: true,
+      rtlOpening: false,
+      // openScale: 1.0,
+      disabledGestures: false,
+      childDecoration: const BoxDecoration(
+        // NOTICE: Uncomment if you want to add shadow behind the page.
+        // Keep in mind that it may cause animation jerks.
+        // boxShadow: <BoxShadow>[
+        //   BoxShadow(
+        //     color: Colors.black12,
+        //     blurRadius: 0.0,
+        //   ),
+        // ],
+        borderRadius:  BorderRadius.all(Radius.circular(16)),
+      ),
+    
+   child:  Scaffold (
+    
+      extendBodyBehindAppBar: false,
+      backgroundColor:  isDarkMode ?   Color.fromARGB(255, 22, 22, 22): Colors.white,
+      appBar: AppBar(backgroundColor: Colors.transparent,
+      elevation:0,
+       scrolledUnderElevation: 0,
+       leading: IconButton(
+            onPressed: _handleMenuButtonPressed,
+            icon: ValueListenableBuilder<AdvancedDrawerValue>(
+              valueListenable: _advancedDrawerController,
+              builder: (_, value, __) {
+                return AnimatedSwitcher(
+                  duration: Duration(milliseconds: 250),
+                  child: Icon(
+                    value.visible ? Icons.clear : Icons.menu,
+                    key: ValueKey<bool>(value.visible),
+                  ),
+                );
+              },
             ),
           ),
-        );
-      },
-      transitionBuilder: (context, anim1, anim2, child) {
-        return FadeTransition(opacity: anim1, child: child);
-      },
-      transitionDuration: const Duration(milliseconds: 200),
-    );
-  },
-  child: Icon(Icons.menu, color: Colors.black, size: 30),
-),
-],
-     backgroundColor: isDarkMode ?   Color.fromARGB(255, 22, 22, 22): Colors.white,
-     elevation: 0,
-      scrolledUnderElevation: 0,
-      ),
-body: SingleChildScrollView(child:Center(child:  Column(
-  children: [
-
- Container(
-  height: 550,
-  width: MediaQuery.of(context).size.width * 0.9, 
-  padding: EdgeInsets.all(20),
+        ),
+      body: SingleChildScrollView(child: Column(
+        
+        children: [
+TextButton(onPressed: (){}, child:Container(
+  height: 560,
+  width: 400,
+  padding: EdgeInsets.all(15),
   decoration: BoxDecoration(color: isDarkMode ?   Color.fromARGB(255, 27, 27, 27): Colors.white,
   border: Border.all(color: Color.fromARGB(255, 38, 38, 38),width: 1),
   borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -174,15 +159,11 @@ body: SingleChildScrollView(child:Center(child:  Column(
     children: [
 
 
- 
- SizedBox(height: 20,),
-  Row(
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: [
+ Row(
+  mainAxisAlignment: MainAxisAlignment.start,
+  children: [
     SizedBox(width: 10,),
-    Text('App/Web Developer',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192)),),
-  SizedBox(width: 200,),
-   Container(height: 30,
+ Container(height: 30,
 width: 150,
 decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(15)),
 color:Color.fromARGB(255, 22, 22, 22),
@@ -196,36 +177,20 @@ child: Row(
   Text('AVAILABLE FOR JOB',style: TextStyle(fontSize: 10,color: Color.fromARGB(255, 192, 192, 192)),)
 ],),
 )
+ ],),
+ SizedBox(height: 20,),
+  Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+    SizedBox(width: 10,),
+    Text('App/Web Developer',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 192, 192, 192)),)
   ],),
-  
-SizedBox(height: 100,),
-
-   Row(mainAxisAlignment: MainAxisAlignment.start,
+  Row(mainAxisAlignment: MainAxisAlignment.start,
   children: [
     SizedBox(width: 10,),
-
-       Text('I\'m Isaac',style: TextStyle(fontSize: 40,color: isDarkMode? Colors.white:Colors.black),),
-
-
-  ],),
-   SizedBox(height: 10,),
-   Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
- Container(
-  width: 600,
-
-  child: Text('I’m a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
-  style: GoogleFonts.inter(color: Color.fromARGB(255, 192, 192, 192)),
-textAlign: TextAlign.start,softWrap: true),
-),
-
- 
-
-
-  Container(
-                  width: 150.0,
-                  height: 150.0,
+    Container(
+                  width: 128.0,
+                  height: 128.0,
                   margin: const EdgeInsets.only(
                     top: 20.0,
                     bottom: 20.0,
@@ -239,10 +204,25 @@ textAlign: TextAlign.start,softWrap: true),
                     'assets/images/IMG_2598.jpg',
                   ),
                 ),
+  ],),
 
- 
-   ],),
- 
+
+   Row(mainAxisAlignment: MainAxisAlignment.start,
+  children: [
+    SizedBox(width: 10,),
+
+       Text('I\'m Isaac',style: TextStyle(fontSize: 25,color:isDarkMode? Colors.white: Colors.black),),
+
+
+  ],),
+   SizedBox(height: 10,),
+  Container(
+  width: 400,
+
+  child: Text('I’m a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
+  style: GoogleFonts.inter(color: Color.fromARGB(255, 192, 192, 192)),
+textAlign: TextAlign.start,softWrap: true),
+),
   SizedBox(height: 20,),
 Row(mainAxisAlignment: MainAxisAlignment.start,
 children: [
@@ -259,18 +239,15 @@ children: [
         offset: Offset(0, 3), // horizontal, vertical shadow offset
       ),
     ], ),
-  child: TextButton(onPressed:(){}, child: Text('Hire Me',style: TextStyle(fontSize: 12,color: Colors.white),)
+  child: TextButton(onPressed: _handleMenuButtonPressed, child: Text('Hire Me',style: TextStyle(fontSize: 12,color: Colors.white),)
   )
   ),
 ]
   )
 
-],)),
-
-SizedBox(height: 50,),
-Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [Container(
+],)), ),
+SizedBox(height: 20,),
+TextButton(onPressed: (){}, child: Container(
   height: 220,
   width: 400,
   padding: EdgeInsets.all(15),
@@ -284,7 +261,7 @@ Row(
 
 
  Row(
- 
+  mainAxisAlignment: MainAxisAlignment.start ,
   children: [
   Icon(Icons.circle,color: Color.fromARGB(255, 192, 192, 192),size: 12,),
 SizedBox(width: 10,),
@@ -293,10 +270,8 @@ SizedBox(width: 10,),
 
 //RECENT WORK
 
+//1
  SizedBox(height: 20,),
-
- //1
-
   Row(
    // mainAxisAlignment: MainAxisAlignment.start,
     children: [
@@ -308,7 +283,6 @@ SizedBox(width: 10,),
   SizedBox(height: 10,),
 
   //2
-
   Row(
  
     children: [
@@ -317,10 +291,9 @@ SizedBox(width: 10,),
     SizedBox(width: 10,),
     Text('Flutter Web',style: TextStyle(fontSize: 15,color:  Color.fromARGB(255, 192, 192, 192)))
   ],),
+
+  //3
    SizedBox(height: 10,),
-
-   //3
-
   Row(
 
     children: [
@@ -329,10 +302,8 @@ SizedBox(width: 10,),
     SizedBox(width: 10,),
     Text('Flutter Mobile',style: TextStyle(fontSize: 15,color:  Color.fromARGB(255, 192, 192, 192)))
   ],),
-   SizedBox(height: 10,),
-
-   //4
-
+ SizedBox(height: 10,),
+  //4
   Row(
 
     children: [
@@ -341,7 +312,8 @@ SizedBox(width: 10,),
     SizedBox(width: 10,),
     Text('Flutter Web',style: TextStyle(fontSize: 15,color:  Color.fromARGB(255, 192, 192, 192)))
   ],),
-],)),
+],)),),
+SizedBox(height: 20,),
 TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mobile()));
 }, child: Container(
   height: 430,
@@ -368,6 +340,7 @@ SizedBox(width: 10,),
  SizedBox(height: 20,),
  Image.asset('assets/images/Mockup.png')
 ],)),),
+SizedBox(height: 20,),
 TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Web()));}, child: Container(
   height: 350,
   width: 400,
@@ -393,9 +366,8 @@ SizedBox(width: 10,),
  SizedBox(height: 50,),
  Image.asset('assets/images/groupweb.png',height:200)
 ],)),),
-],),
 SizedBox(height: 20,),
-Container(
+TextButton(onPressed: (){}, child: Container(
   height: 150,
   width: 400,
   padding: EdgeInsets.all(15),
@@ -435,16 +407,89 @@ child: Row(
   ],),
   SizedBox(height: 10,),
  
-],)),
+],)),),
 SizedBox(height: 50,),
 Center(child: Text('Thank You!!',style: GoogleFonts.alfaSlabOne(fontSize: 30,)),),
 SizedBox(height: 20,),
-],),))
+     
+      ],),)
+      ),
+       drawer: SafeArea(
+        child: Container(
+          child: ListTileTheme(
+            textColor: Colors.white,
+            iconColor: Colors.white,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                // Container(
+                //   width: 128.0,
+                //   height: 128.0,
+                //   margin: const EdgeInsets.only(
+                //     top: 24.0,
+                //     bottom: 64.0,
+                //   ),
+                //   clipBehavior: Clip.antiAlias,
+                //   decoration: BoxDecoration(
+                //     color: Colors.black26,
+                //     shape: BoxShape.circle,
+                //   ),
+                //   child: Image.asset(
+                //     'assets/images/IMG_2598.jpg',
+                //   ),
+                // ),
+                SizedBox(height: 150,),
+                ListTile(
+                  onTap: _launchlink,
+                  leading:  Image.asset( 'assets/images/linkedin.png' ,height: 30,),
+                  title: Text('LinkedIn'),
+                ),
+                ListTile(
+                  onTap: _launchgithub,
+                  leading: Image.asset( 'assets/images/github.png' ,height: 30,),
+                  title: Text('Github'),
+                ),
+                ListTile(
+                  onTap: _launchEmail,
+                  leading: Image.asset( 'assets/images/gmail.png' ,height: 25,),
+                  title: Text('Mail'),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading:  Image.asset( 'assets/images/whatsapp.png' ,height: 30,),
+                  title: Text('Whatsapp'),
+                ),
+                Spacer(),
+                // DefaultTextStyle(
+                //   style: TextStyle(
+                //     fontSize: 12,
+                //     color: Colors.white54,
+                //   ),
+                //   child: Container(
+                //     margin: const EdgeInsets.symmetric(
+                //       vertical: 16.0,
+                //     ),
+                //     child: Text('Terms of Service | Privacy Policy'),
+                //   ),
+                // ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
-}
 
- List<Particle> createParticles() {
+  void _handleMenuButtonPressed() {
+    // NOTICE: Manage Advanced Drawer state through the Controller.
+    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
+    _advancedDrawerController.showDrawer();
+  }
+}
+    
+
+
+    List<Particle> createParticles() {
     var rng = Random();
     List<Particle> particles = [];
     for (int i = 0; i < 140; i++) {

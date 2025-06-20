@@ -1,6 +1,6 @@
 
-import 'package:dartby/project.dart';
-import 'package:dartby/project2.dart';
+import 'package:dartby/Mobile%20view/project.dart';
+import 'package:dartby/Desktop%20View/project2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';

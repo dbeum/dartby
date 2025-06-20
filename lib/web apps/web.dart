@@ -278,7 +278,8 @@ textAlign: TextAlign.center,softWrap: true,),)
             child: Image.asset( 'assets/images/logo.png' ,height: 100,)
             ),
             Row(children: [
-               TextButton(onPressed: _launchexperience, child:   Container(
+            Column(children: [
+                 TextButton(onPressed: _launchexperience, child:   Container(
       
             padding: EdgeInsets.all(2.0), 
             decoration: BoxDecoration(
@@ -288,30 +289,33 @@ textAlign: TextAlign.center,softWrap: true,),)
                 width: 2.0, 
               ),
             ),
-            child: ClipRRect(
+            child:
+             ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child:Image.asset( 'assets/images/3d.png' ,height: 100,) 
-              )),),
-            
-              Column(
-                children: [
-                  Text('Experience Site', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
-                  Row(children: [
+              child:Image.asset( 'assets/images/3d.png' ,height: 150,) 
+              )
+              ),
+              ),
+                     SizedBox(height: 20,), 
+                        Text('Experience Site', style: GoogleFonts.sanchez(textStyle: const TextStyle(fontWeight: FontWeight.w900, ))),
+                    
+                  
+                      Row(children: [
                     
                   const    Text('Platform:',style:TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontWeight: FontWeight.bold)),
                SizedBox(width: 2,),
                   Text('Flutter Web'),
                
                     
-                  ],),
+                  ],),    
                 
-Container(width: 170,
-child:   Text('Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site — \'s an experience.',
+Container(width: 200,
+child:   Text('Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site\'s an experience.',
 style: TextStyle(fontSize: 12),
 textAlign: TextAlign.center,softWrap: true,),)
- 
-                ],
-              )
+            ],),
+            
+              
             ],),
                      SizedBox(height: 50,),
              Align(alignment: Alignment.centerRight,
