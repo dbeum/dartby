@@ -211,7 +211,7 @@ child: Row(
   children: [
     SizedBox(width: 10,),
 
-       Text('I\'m Isaac',style: TextStyle(fontSize: 25,color:isDarkMode? Colors.white: Colors.black),),
+       Text('Hi i\'m Isaac',style: TextStyle(fontSize: 25,color:isDarkMode? Colors.white: Colors.black),),
 
 
   ],),

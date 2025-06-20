@@ -204,7 +204,7 @@ SizedBox(height: 100,),
   children: [
     SizedBox(width: 10,),
 
-       Text('I\'m Isaac',style: TextStyle(fontSize: 40,color: isDarkMode? Colors.white:Colors.black),),
+       Text('Hi i\'m Isaac',style: TextStyle(fontSize: 40,color: isDarkMode? Colors.white:Colors.black),),
 
 
   ],),
