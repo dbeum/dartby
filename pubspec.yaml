@@ -1,10 +1,10 @@
 name: dartby
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.3.3 <4.0.0'
+  sdk: ">=3.3.3 <4.0.0"
 
 dependencies:
   animations: ^2.0.11
@@ -13,9 +13,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_advanced_drawer: ^1.3.7
+  flutter_bounceable: ^1.2.0
   flutter_card_swiper: ^7.0.2
   google_fonts: ^6.2.1
   iconify_flutter: ^0.0.7
+  motion: ^2.0.1
   particles_flutter: ^1.0.1
   responsive_builder: ^0.7.1
   shared_preferences: ^2.5.3
@@ -68,6 +70,11 @@ flutter:
     - assets/images/Mockup.png
     - assets/images/groupweb.png
     - assets/images/3d.png
-
-
-    
+    - assets/images/midnight.png
+    - assets/images/midnightpc.png
+    - assets/images/appstoredark.png
+    - assets/images/playstoredark.png
+    - assets/images/wd.jpg
+    - assets/images/weatherlogo.png
+    - assets/images/weatherl.png
+    - assets/images/weatherlogo.jpg
