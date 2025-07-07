@@ -163,7 +163,7 @@ class _moonWeatherState extends State<moonWeather> {
                       ),
                       Container(
                         width: 400,
-                        key: section1Key,
+                      
                         child: Text(
                           'It’s more than just a weather app — it’s your pocket-sized forecast companion. Get the info you actually care about, without the clutter.',
                           textAlign: TextAlign.start,
@@ -182,6 +182,7 @@ class _moonWeatherState extends State<moonWeather> {
                         children: [
                           Container(
                             width: 300,
+                             
                             child: Column(
                               children: [
                                 Text(
@@ -204,6 +205,7 @@ class _moonWeatherState extends State<moonWeather> {
                           ),
                           Container(
                             width: 300,
+                             key: section1Key,
                             child: Column(
                               children: [
                                 Text(

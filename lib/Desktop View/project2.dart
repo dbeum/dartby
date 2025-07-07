@@ -22,7 +22,7 @@ class Project2 extends StatefulWidget {
 }
 
 class _Project2State extends State<Project2> {
-  bool isDarkMode = false;
+//  bool isDarkMode = false;
   final Uri githubUrl = Uri.parse('https://github.com/dbeum');
 
   Future<void> _launchgithub() async {
@@ -89,10 +89,10 @@ class _Project2State extends State<Project2> {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+   // bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
         backgroundColor:
-            isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+           Color.fromARGB(255, 22, 22, 22) ,
         appBar: AppBar(
           actions: [
             TextButton(
@@ -160,7 +160,7 @@ class _Project2State extends State<Project2> {
             ),
           ],
           backgroundColor:
-              isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+               Color.fromARGB(255, 22, 22, 22),
           elevation: 0,
           scrolledUnderElevation: 0,
         ),
@@ -175,9 +175,8 @@ class _Project2State extends State<Project2> {
                     width: MediaQuery.of(context).size.width * 0.9,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color: isDarkMode
-                            ? Color.fromARGB(255, 27, 27, 27)
-                            : Colors.white,
+                        color:  Color.fromARGB(255, 27, 27, 27)
+                          ,
                         border: Border.all(
                             color: Color.fromARGB(255, 38, 38, 38), width: 1),
                         borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -246,7 +245,7 @@ class _Project2State extends State<Project2> {
                               style: TextStyle(
                                   fontSize: 40,
                                   color:
-                                      isDarkMode ? Colors.white : Colors.black),
+                                   Colors.white ),
                             ),
                           ],
                         ),
@@ -302,9 +301,8 @@ class _Project2State extends State<Project2> {
                                         BorderRadius.all(Radius.circular(5)),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: isDarkMode
-                                            ? Colors.white.withOpacity(0.2)
-                                            : Colors.black.withOpacity(0.2),
+                                        color:  Colors.white.withOpacity(0.2)
+                                      ,
                                         spreadRadius: 2,
                                         blurRadius: 5,
                                         offset: Offset(0,
@@ -336,9 +334,8 @@ class _Project2State extends State<Project2> {
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color: isDarkMode
-                                ? Color.fromARGB(255, 27, 27, 27)
-                                : Colors.white,
+                            color:  Color.fromARGB(255, 27, 27, 27)
+                                ,
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -494,9 +491,8 @@ class _Project2State extends State<Project2> {
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color: isDarkMode
-                                ? Color.fromARGB(255, 27, 27, 27)
-                                : Colors.white,
+                            color:  Color.fromARGB(255, 27, 27, 27)
+                          ,
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -541,9 +537,8 @@ class _Project2State extends State<Project2> {
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color: isDarkMode
-                                ? Color.fromARGB(255, 27, 27, 27)
-                                : Colors.white,
+                            color:  Color.fromARGB(255, 27, 27, 27)
+                                ,
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -591,9 +586,8 @@ class _Project2State extends State<Project2> {
                     width: 400,
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                        color: isDarkMode
-                            ? Color.fromARGB(255, 27, 27, 27)
-                            : Colors.white,
+                        color:  Color.fromARGB(255, 27, 27, 27)
+                          ,
                         border: Border.all(
                             color: Color.fromARGB(255, 38, 38, 38), width: 1),
                         borderRadius: BorderRadius.all(Radius.circular(10))),

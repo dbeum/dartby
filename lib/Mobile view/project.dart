@@ -22,7 +22,7 @@ class Project extends StatefulWidget {
 }
 
 class _ProjectState extends State<Project> {
-  bool isDarkMode = false;
+ // bool isDarkMode = false;
   final _advancedDrawerController = AdvancedDrawerController();
 
   final Uri githubUrl = Uri.parse('https://github.com/dbeum');
@@ -91,7 +91,7 @@ class _ProjectState extends State<Project> {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+  //  bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return AdvancedDrawer(
       backdrop: Container(
@@ -127,7 +127,7 @@ class _ProjectState extends State<Project> {
       child: Scaffold(
           extendBodyBehindAppBar: false,
           backgroundColor:
-              isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+              Color.fromARGB(255, 22, 22, 22),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -160,9 +160,7 @@ class _ProjectState extends State<Project> {
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color: isDarkMode
-                                ? Color.fromARGB(255, 27, 27, 27)
-                                : Colors.white,
+                            color:  Color.fromARGB(255, 27, 27, 27),
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -260,9 +258,8 @@ class _ProjectState extends State<Project> {
                                   'Hi i\'m Isaac',
                                   style: TextStyle(
                                       fontSize: 25,
-                                      color: isDarkMode
-                                          ? Colors.white
-                                          : Colors.black),
+                                      color:  Colors.white
+                                         ),
                                 ),
                               ],
                             ),
@@ -297,9 +294,8 @@ class _ProjectState extends State<Project> {
                                             Radius.circular(5)),
                                         boxShadow: [
                                           BoxShadow(
-                                            color: isDarkMode
-                                                ? Colors.white.withOpacity(0.2)
-                                                : Colors.black.withOpacity(0.2),
+                                            color:Colors.white.withOpacity(0.2)
+                                                ,
                                             spreadRadius: 2,
                                             blurRadius: 5,
                                             offset: Offset(0,
@@ -334,9 +330,8 @@ class _ProjectState extends State<Project> {
                           width: 400,
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
-                              color: isDarkMode
-                                  ? Color.fromARGB(255, 27, 27, 27)
-                                  : Colors.white,
+                              color:  Color.fromARGB(255, 27, 27, 27)
+                                  ,
                               border: Border.all(
                                   color: Color.fromARGB(255, 38, 38, 38),
                                   width: 1),
@@ -488,9 +483,8 @@ class _ProjectState extends State<Project> {
                       width: 400,
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                          color: isDarkMode
-                              ? Color.fromARGB(255, 27, 27, 27)
-                              : Colors.white,
+                          color:Color.fromARGB(255, 27, 27, 27)
+                            ,
                           border: Border.all(
                               color: Color.fromARGB(255, 38, 38, 38), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -535,9 +529,8 @@ class _ProjectState extends State<Project> {
                       width: 400,
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                          color: isDarkMode
-                              ? Color.fromARGB(255, 27, 27, 27)
-                              : Colors.white,
+                          color: Color.fromARGB(255, 27, 27, 27),
+                              
                           border: Border.all(
                               color: Color.fromARGB(255, 38, 38, 38), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -581,9 +574,8 @@ class _ProjectState extends State<Project> {
                           width: 400,
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
-                              color: isDarkMode
-                                  ? Color.fromARGB(255, 27, 27, 27)
-                                  : Colors.white,
+                              color:  Color.fromARGB(255, 27, 27, 27)
+                            ,
                               border: Border.all(
                                   color: Color.fromARGB(255, 38, 38, 38),
                                   width: 1),
