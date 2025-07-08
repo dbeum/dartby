@@ -129,7 +129,7 @@ class _moonWeatherState extends State<moonWeather> {
                     height: 10,
                   ),
                   Image.asset(
-                    'assets/images/midnight.png',
+                    'assets/images/wmg2.png',
                     height: 300,
                   ),
                   SizedBox(
