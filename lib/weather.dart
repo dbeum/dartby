@@ -42,7 +42,288 @@ class _moonWeatherState extends State<moonWeather> {
   }
 
   Widget MobileNavBar() {
-    return Scaffold(body: Text('data'));
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(
+                  'assets/images/weatherl.png',
+                  height: 70,
+                ),
+                TextButton(
+                    onPressed: () => scrollToSection(section1Key),
+                    child: Text(
+                      'Features',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 21, 68, 150),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold),
+                    ))
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    'Real-Time Local Weather at a Glance 🌤️',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    width: 500,
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      'Get accurate, real-time weather updates based on your location. See current conditions including temperature, \'feels like,\' daily highs and lows, humidity, and more — all in a simple, easy-to-use interface.',
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Bounceable(
+                        onTap: () {},
+                        child: Image.asset(
+                          'assets/images/appstoredark.png',
+                          height: 35,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Bounceable(
+                          onTap: () {},
+                          child: Image.asset(
+                            'assets/images/playstoredark.png',
+                            height: 35,
+                          ))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  TextButton(
+                      onPressed: _launchweather,
+                      child: Text('Live Demo',
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 21, 68, 150),
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold))),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Image.asset(
+                    'assets/images/midnight.png',
+                    height: 300,
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Text(
+                    'Why Choose Moon Weather?',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    width: 400,
+                    key: section1Key,
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      'It’s more than just a weather app — it’s your pocket-sized forecast companion. Get the info you actually care about, without the clutter.',
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Know what’s happening right now',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'See real-time weather updates tailored to your exact location.',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'No surprises outside',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Check current conditions like wind speed, humidity, pressure, and visibility before you step out.',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Stay ahead of the skies',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Get a clear view of today’s max and min temperatures, and current weather — all in one place.',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'One world, one weather',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'See which country your weather data is coming from, powered by accurate geolocation.',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Simple, fast, no stress',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Everything you need in a clean, easy-to-use interface. No ads, no confusion.',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 80),
+            Container(
+              height: 140,
+              padding: EdgeInsets.all(5),
+              color: Color.fromARGB(255, 21, 68, 150),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Image.asset(
+                        'assets/images/weatherlogo.png',
+                        height: 80,
+                      ),
+                      Text(
+                        '©️ 2025 Moon Weather',
+                        style: TextStyle(color: Colors.black, fontSize: 13),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Row(
+                    children: [
+                      Bounceable(
+                        onTap: () {},
+                        child: Image.asset(
+                          'assets/images/appstoredark.png',
+                          height: 35,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Bounceable(
+                          onTap: () {},
+                          child: Image.asset(
+                            'assets/images/playstoredark.png',
+                            height: 35,
+                          ))
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Widget DeskTopNavBar() {
@@ -163,7 +444,6 @@ class _moonWeatherState extends State<moonWeather> {
                       ),
                       Container(
                         width: 400,
-                      
                         child: Text(
                           'It’s more than just a weather app — it’s your pocket-sized forecast companion. Get the info you actually care about, without the clutter.',
                           textAlign: TextAlign.start,
@@ -182,7 +462,6 @@ class _moonWeatherState extends State<moonWeather> {
                         children: [
                           Container(
                             width: 300,
-                             
                             child: Column(
                               children: [
                                 Text(
@@ -205,7 +484,7 @@ class _moonWeatherState extends State<moonWeather> {
                           ),
                           Container(
                             width: 300,
-                             key: section1Key,
+                            key: section1Key,
                             child: Column(
                               children: [
                                 Text(

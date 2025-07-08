@@ -55,10 +55,9 @@ class _MobileState extends State<Mobile> {
   }
 
   Widget MobileNavBar() {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    // bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-        backgroundColor:
-            isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor:
               isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
@@ -163,15 +162,25 @@ class _MobileState extends State<Mobile> {
                   Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset(
-                        'assets/images/logo1.png',
+                        'assets/images/weatherl.png',
                         height: 100,
                       )),
-                  Row(
+                  Column(
                     children: [
+                      Text('Moon Weather',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black))),
+                      SizedBox(
+                        height: 10,
+                      ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Dotby()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => moonWeather()));
                         },
                         child: Container(
                             padding: EdgeInsets.all(2.0),
@@ -185,40 +194,10 @@ class _MobileState extends State<Mobile> {
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: Image.asset(
-                                  'assets/images/dotby2.png',
+                                  'assets/images/wm.png',
                                   height: 250,
                                 ))),
                       ),
-                      Column(
-                        children: [
-                          Text('Dotby Production',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Mobile'),
-                            ],
-                          ),
-                          Container(
-                            width: 170,
-                            child: Text(
-                              'A sleek, cross-platform app that mirrors the company’s full services: users can book event coverage, rent media equipment, sign up as vendors, and explore offerings — all from their phones, with a smooth and intuitive interface.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
                   Align(

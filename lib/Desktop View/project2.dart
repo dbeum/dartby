@@ -311,7 +311,66 @@ class _Project2State extends State<Project2> {
                                     ],
                                   ),
                                   child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                showGeneralDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  barrierLabel: "Menu",
+                  barrierColor: Colors.black.withOpacity(0.5),
+                  pageBuilder: (context, anim1, anim2) {
+                    return BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                      child: Center(
+                        child: Material(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    TextButton(
+                                        onPressed: _launchlink,
+                                        child: Image.asset(
+                                          'assets/images/linkedin.png',
+                                          height: 30,
+                                        )),
+                                    TextButton(
+                                        onPressed: _launchgithub,
+                                        child: Image.asset(
+                                          'assets/images/github.png',
+                                          height: 30,
+                                        )),
+                                    TextButton(
+                                        onPressed: _launchEmail,
+                                        child: Image.asset(
+                                          'assets/images/gmail.png',
+                                          height: 25,
+                                        )),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Image.asset(
+                                          'assets/images/whatsapp.png',
+                                          height: 30,
+                                        )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  transitionBuilder: (context, anim1, anim2, child) {
+                    return FadeTransition(opacity: anim1, child: child);
+                  },
+                  transitionDuration: const Duration(milliseconds: 200),
+                );
+              },
                                       child: Text(
                                         'Hire Me',
                                         style: TextStyle(
