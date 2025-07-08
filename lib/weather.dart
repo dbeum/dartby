@@ -91,33 +91,33 @@ class _moonWeatherState extends State<moonWeather> {
                       style: TextStyle(color: Colors.black, fontSize: 12),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Bounceable(
-                        onTap: () {},
-                        child: Image.asset(
-                          'assets/images/appstoredark.png',
-                          height: 35,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Bounceable(
-                          onTap: () {},
-                          child: Image.asset(
-                            'assets/images/playstoredark.png',
-                            height: 35,
-                          ))
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     Bounceable(
+                  //       onTap: () {},
+                  //       child: Image.asset(
+                  //         'assets/images/appstoredark.png',
+                  //         height: 35,
+                  //       ),
+                  //     ),
+                  //     SizedBox(
+                  //       width: 20,
+                  //     ),
+                  //     Bounceable(
+                  //         onTap: () {},
+                  //         child: Image.asset(
+                  //           'assets/images/playstoredark.png',
+                  //           height: 35,
+                  //         ))
+                  //   ],
+                  // ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
                   TextButton(
                       onPressed: _launchweather,
                       child: Text('Live Demo',
@@ -294,29 +294,29 @@ class _moonWeatherState extends State<moonWeather> {
                       )
                     ],
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Row(
-                    children: [
-                      Bounceable(
-                        onTap: () {},
-                        child: Image.asset(
-                          'assets/images/appstoredark.png',
-                          height: 35,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Bounceable(
-                          onTap: () {},
-                          child: Image.asset(
-                            'assets/images/playstoredark.png',
-                            height: 35,
-                          ))
-                    ],
-                  )
+                  // SizedBox(
+                  //   width: 15,
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     Bounceable(
+                  //       onTap: () {},
+                  //       child: Image.asset(
+                  //         'assets/images/appstoredark.png',
+                  //         height: 35,
+                  //       ),
+                  //     ),
+                  //     SizedBox(
+                  //       width: 10,
+                  //     ),
+                  //     Bounceable(
+                  //         onTap: () {},
+                  //         child: Image.asset(
+                  //           'assets/images/playstoredark.png',
+                  //           height: 35,
+                  //         ))
+                  //   ],
+                  // )
                 ],
               ),
             )
@@ -379,31 +379,31 @@ class _moonWeatherState extends State<moonWeather> {
                           style: TextStyle(color: Colors.black, fontSize: 15),
                         ),
                       ),
+                      // SizedBox(
+                      //   height: 20,
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     Bounceable(
+                      //       onTap: () {},
+                      //       child: Image.asset(
+                      //         'assets/images/appstoredark.png',
+                      //         height: 50,
+                      //       ),
+                      //     ),
+                      //     SizedBox(
+                      //       width: 20,
+                      //     ),
+                      //     Bounceable(
+                      //         onTap: () {},
+                      //         child: Image.asset(
+                      //           'assets/images/playstoredark.png',
+                      //           height: 50,
+                      //         ))
+                      //   ],
+                      // ),
                       SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Bounceable(
-                            onTap: () {},
-                            child: Image.asset(
-                              'assets/images/appstoredark.png',
-                              height: 50,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Bounceable(
-                              onTap: () {},
-                              child: Image.asset(
-                                'assets/images/playstoredark.png',
-                                height: 50,
-                              ))
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
                       TextButton(
                           onPressed: _launchweather,
@@ -582,7 +582,7 @@ class _moonWeatherState extends State<moonWeather> {
                 height: 100,
               ),
               Container(
-                height: 300,
+                height: 200,
                 color: Color.fromARGB(255, 21, 68, 150),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -590,7 +590,7 @@ class _moonWeatherState extends State<moonWeather> {
                     Column(
                       children: [
                         SizedBox(
-                          height: 100,
+                          height: 30,
                         ),
                         Image.asset(
                           'assets/images/weatherlogo.png',
@@ -604,29 +604,29 @@ class _moonWeatherState extends State<moonWeather> {
                         )
                       ],
                     ),
-                    SizedBox(
-                      width: 400,
-                    ),
-                    Row(
-                      children: [
-                        Bounceable(
-                          onTap: () {},
-                          child: Image.asset(
-                            'assets/images/appstoredark.png',
-                            height: 50,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Bounceable(
-                            onTap: () {},
-                            child: Image.asset(
-                              'assets/images/playstoredark.png',
-                              height: 50,
-                            ))
-                      ],
-                    )
+                    // SizedBox(
+                    //   width: 400,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     Bounceable(
+                    //       onTap: () {},
+                    //       child: Image.asset(
+                    //         'assets/images/appstoredark.png',
+                    //         height: 50,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 20,
+                    //     ),
+                    //     Bounceable(
+                    //         onTap: () {},
+                    //         child: Image.asset(
+                    //           'assets/images/playstoredark.png',
+                    //           height: 50,
+                    //         ))
+                    //   ],
+                    // )
                   ],
                 ),
               )

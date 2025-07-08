@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dartby/dotby.dart';
+import 'package:dartby/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -89,13 +90,11 @@ class _WebState extends State<Web> {
   }
 
   Widget MobileNavBar() {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    //bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-        backgroundColor:
-            isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor:
-              isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+          backgroundColor: Colors.white,
         ),
         body: Center(
           child: CarouselSlider(
@@ -190,13 +189,26 @@ class _WebState extends State<Web> {
                   Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset(
-                        'assets/images/weatherlogo.png',
+                        'assets/images/weatherl.png',
                         height: 100,
                       )),
-                  Row(
+                  Column(
                     children: [
+                      Text('Moon Weather',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black))),
+                      SizedBox(
+                        height: 10,
+                      ),
                       TextButton(
-                        onPressed: _launchweather,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => moonWeather()));
+                        },
                         child: Container(
                             padding: EdgeInsets.all(2.0),
                             decoration: BoxDecoration(
@@ -213,42 +225,18 @@ class _WebState extends State<Web> {
                                   height: 250,
                                 ))),
                       ),
-                      Column(
-                        children: [
-                          Text('Moon Weather',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
-                          ),
-                          Container(
-                            width: 170,
-                            child: Text(
-                              'Get accurate, real-time weather updates based on your location. See current conditions including temperature, \'feels like,\' daily highs and lows, humidity, and more — all in a simple, easy-to-use interface.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
                   Align(
                       alignment: Alignment.centerRight,
                       child: Image.asset(
-                        'assets/images/web.png',
+                        'assets/images/app.png',
+                        height: 100,
+                      )),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        'assets/images/android.png',
                         height: 100,
                       )),
                 ],
@@ -406,13 +394,11 @@ class _WebState extends State<Web> {
   }
 
   Widget DeskTopNavBar() {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    //   bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-        backgroundColor:
-            isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor:
-              isDarkMode ? Color.fromARGB(255, 22, 22, 22) : Colors.white,
+          backgroundColor: Colors.white,
         ),
         body: Center(
           child: CarouselSlider(
@@ -507,60 +493,31 @@ class _WebState extends State<Web> {
                   Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/weatherlogo.jpg',
                         height: 100,
                       )),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: _launchweather,
-                        child: Container(
-                            padding: EdgeInsets.all(2.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 192, 192, 192),
-                                width: 2.0,
-                              ),
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                  'assets/images/wd.png',
-                                  height: 250,
-                                ))),
-                      ),
-                      Column(
-                        children: [
-                          Text('Moon Weather',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => moonWeather()));
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 192, 192, 192),
+                            width: 2.0,
                           ),
-                          Container(
-                            width: 400,
-                            child: Text(
-                              'Get accurate, real-time weather updates based on your location. See current conditions including temperature, \'feels like,\' daily highs and lows, humidity, and more — all in a simple, easy-to-use interface.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.asset(
+                              'assets/images/wd.jpg',
+                              height: 250,
+                            ))),
                   ),
                   Align(
                       alignment: Alignment.centerRight,
