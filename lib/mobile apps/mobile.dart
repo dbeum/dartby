@@ -26,6 +26,16 @@ class _MobileState extends State<Mobile> {
     }
   }
 
+  final Uri spotifyUrl = Uri.parse(
+      'https://drive.google.com/file/d/1KqZFygRNSjah-sCUN64dPKc9TS86IKTp/view?usp=drive_link');
+
+  Future<void> _launchspotify() async {
+    // Use launchUrl for web compatibility
+    if (!await launchUrl(spotifyUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $spotifyUrl';
+    }
+  }
+
   final String email = 'entrydirect@gmail.com';
 
   // Function to open email app
@@ -85,8 +95,16 @@ class _MobileState extends State<Mobile> {
                         'assets/images/logo1.png',
                         height: 100,
                       )),
-                  Row(
+                  Column(
                     children: [
+                      Text('Dotby Production',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black))),
+                      SizedBox(
+                        height: 10,
+                      ),
                       TextButton(
                         onPressed: () {
                           Navigator.push(context,
@@ -108,36 +126,6 @@ class _MobileState extends State<Mobile> {
                                   height: 250,
                                 ))),
                       ),
-                      Column(
-                        children: [
-                          Text('Dotby Production',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Mobile'),
-                            ],
-                          ),
-                          Container(
-                            width: 170,
-                            child: Text(
-                              'A sleek, cross-platform app that mirrors the company’s full services: users can book event coverage, rent media equipment, sign up as vendors, and explore offerings — all from their phones, with a smooth and intuitive interface.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
                   Align(
@@ -214,6 +202,63 @@ class _MobileState extends State<Mobile> {
                       )),
                 ],
               ),
+
+              //ITEM 3
+
+              Column(
+                children: [
+                  Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                        'assets/images/logospotify.png',
+                        height: 100,
+                      )),
+                  Column(
+                    children: [
+                      Text('Spotify',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black))),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          _launchspotify();
+                        },
+                        child: Container(
+                            padding: EdgeInsets.all(2.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(
+                                color: Color.fromARGB(255, 192, 192, 192),
+                                width: 2.0,
+                              ),
+                            ),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Image.asset(
+                                  'assets/images/spotify.png',
+                                  height: 250,
+                                ))),
+                      ),
+                    ],
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
+                        'assets/images/app.png',
+                        height: 100,
+                      )),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        'assets/images/android.png',
+                        height: 100,
+                      )),
+                ],
+              ),
             ],
           ),
         ));
@@ -229,7 +274,7 @@ class _MobileState extends State<Mobile> {
         body: Center(
           child: CarouselSlider(
             options: CarouselOptions(
-              height: 650.0,
+              height: 820.0,
               autoPlay: true,
               enlargeCenterPage: true,
               aspectRatio: 16 / 9,
@@ -249,72 +294,38 @@ class _MobileState extends State<Mobile> {
                         'assets/images/logo1.png',
                         height: 100,
                       )),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Dotby()));
-                        },
-                        child: Container(
-                            padding: EdgeInsets.all(2.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 192, 192, 192),
-                                width: 2.0,
-                              ),
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                  'assets/images/dotby2.png',
-                                  height: 250,
-                                ))),
-                      ),
-                      Column(
-                        children: [
-                          Text('Dotby Production',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Mobile'),
-                            ],
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Dotby()));
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 192, 192, 192),
+                            width: 2.0,
                           ),
-                          Container(
-                            width: 400,
-                            child: Text(
-                              'A sleek, cross-platform app that mirrors the company’s full services: users can book event coverage, rent media equipment, sign up as vendors, and explore offerings — all from their phones, with a smooth and intuitive interface.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.asset(
+                              'assets/images/dotby2.png',
+                              height: 400,
+                            ))),
                   ),
                   Align(
                       alignment: Alignment.centerRight,
                       child: Image.asset(
                         'assets/images/app.png',
-                        height: 90,
+                        height: 100,
                       )),
                   Align(
                       alignment: Alignment.bottomCenter,
                       child: Image.asset(
                         'assets/images/android.png',
-                        height: 90,
+                        height: 100,
                       )),
                 ],
               ),
@@ -350,6 +361,58 @@ class _MobileState extends State<Mobile> {
                             child: Image.asset(
                               'assets/images/wd.jpg',
                               height: 250,
+                            ))),
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
+                        'assets/images/app.png',
+                        height: 100,
+                      )),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        'assets/images/android.png',
+                        height: 100,
+                      )),
+                ],
+              ),
+              //ITEM 3
+
+              Column(
+                children: [
+                  Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                        'assets/images/logospotify.png',
+                        height: 100,
+                      )),
+                  Text('Spotify',
+                      style: GoogleFonts.sanchez(
+                          textStyle: const TextStyle(
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black))),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      _launchspotify();
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 192, 192, 192),
+                            width: 2.0,
+                          ),
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.asset(
+                              'assets/images/spotify.png',
+                              height: 400,
                             ))),
                   ),
                   Align(
