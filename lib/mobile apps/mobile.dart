@@ -26,6 +26,15 @@ class _MobileState extends State<Mobile> {
     }
   }
 
+  final Uri snlinkUrl = Uri.parse('https://stream-nest-alpha.vercel.app/');
+
+  Future<void> _launchsnlink() async {
+    // Use launchUrl for web compatibility
+    if (!await launchUrl(snlinkUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $snlinkUrl';
+    }
+  }
+
   final Uri spotifyUrl = Uri.parse(
       'https://drive.google.com/file/d/1KqZFygRNSjah-sCUN64dPKc9TS86IKTp/view?usp=drive_link');
 
@@ -259,6 +268,73 @@ class _MobileState extends State<Mobile> {
                       )),
                 ],
               ),
+              //ITEM 4
+
+              Column(
+                children: [
+                  Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                        'assets/images/snl.png',
+                        height: 100,
+                      )),
+                  Column(
+                    children: [
+                      Text('StreamNest',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black))),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          _launchsnlink();
+                        },
+                        child: Container(
+                            padding: EdgeInsets.all(2.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(
+                                color: Color.fromARGB(255, 192, 192, 192),
+                                width: 2.0,
+                              ),
+                            ),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Image.asset(
+                                  'assets/images/sn.jpeg',
+                                  height: 250,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          'Click this text to Download App',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.black),
+                        ),
+                      )
+                    ],
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
+                        'assets/images/app.png',
+                        height: 100,
+                      )),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        'assets/images/android.png',
+                        height: 100,
+                      )),
+                ],
+              ),
             ],
           ),
         ));
@@ -274,7 +350,7 @@ class _MobileState extends State<Mobile> {
         body: Center(
           child: CarouselSlider(
             options: CarouselOptions(
-              height: 820.0,
+              height: MediaQuery.of(context).size.height * 1,
               autoPlay: true,
               enlargeCenterPage: true,
               aspectRatio: 16 / 9,
@@ -312,7 +388,7 @@ class _MobileState extends State<Mobile> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.asset(
                               'assets/images/dotby2.png',
-                              height: 400,
+                              height: MediaQuery.of(context).size.height * .42,
                             ))),
                   ),
                   Align(
@@ -325,7 +401,7 @@ class _MobileState extends State<Mobile> {
                       alignment: Alignment.bottomCenter,
                       child: Image.asset(
                         'assets/images/android.png',
-                        height: 100,
+                        height: MediaQuery.of(context).size.height * .15,
                       )),
                 ],
               ),
@@ -412,19 +488,82 @@ class _MobileState extends State<Mobile> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.asset(
                               'assets/images/spotify.png',
-                              height: 400,
+                              height: MediaQuery.of(context).size.height * .4,
                             ))),
                   ),
                   Align(
                       alignment: Alignment.centerRight,
                       child: Image.asset(
-                        'assets/images/app.png',
+                        'assets/images/android.png',
                         height: 100,
                       )),
                   Align(
                       alignment: Alignment.bottomCenter,
                       child: Image.asset(
+                        'assets/images/app.png',
+                        height: MediaQuery.of(context).size.height * .13,
+                      )),
+                ],
+              ),
+              //ITEM 4
+
+              Column(
+                children: [
+                  Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                        'assets/images/snl.png',
+                        height: 60,
+                      )),
+                  Text('StreamNest',
+                      style: GoogleFonts.sanchez(
+                          textStyle: const TextStyle(
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black))),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      _launchsnlink();
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 192, 192, 192),
+                            width: 2.0,
+                          ),
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.asset(
+                              'assets/images/sn.jpeg',
+                              height: MediaQuery.of(context).size.height * .4,
+                            ))),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      'Click this text to Download App',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
+                    ),
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
                         'assets/images/android.png',
+                        height: 100,
+                      )),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        'assets/images/app.png',
                         height: 100,
                       )),
                 ],
