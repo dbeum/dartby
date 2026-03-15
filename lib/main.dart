@@ -1,4 +1,5 @@
-import 'package:dartby/home.dart';
+import 'package:dartby/mobile_apps.dart';
+import 'package:dartby/homes.dart';
 import 'package:dartby/Mobile%20view/project.dart';
 import 'package:dartby/weather.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
       themeMode: ThemeMode.system,
-      home: Home(),
+      home: Homes(),
       debugShowCheckedModeBanner: false,
     );
   }

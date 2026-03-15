@@ -3,8 +3,9 @@ import 'dart:ui';
 
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dartby/dotby.dart';
-import 'package:dartby/mobile%20apps/mobile.dart';
+
+import 'package:dartby/mobile_apps.dart';
+
 import 'package:dartby/web%20apps/web.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
@@ -89,10 +90,9 @@ class _Project2State extends State<Project2> {
 
   @override
   Widget build(BuildContext context) {
-   // bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    // bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-        backgroundColor:
-           Color.fromARGB(255, 22, 22, 22) ,
+        backgroundColor: Color.fromARGB(255, 22, 22, 22),
         appBar: AppBar(
           actions: [
             TextButton(
@@ -159,8 +159,7 @@ class _Project2State extends State<Project2> {
               child: Icon(Icons.menu, color: Colors.black, size: 30),
             ),
           ],
-          backgroundColor:
-               Color.fromARGB(255, 22, 22, 22),
+          backgroundColor: Color.fromARGB(255, 22, 22, 22),
           elevation: 0,
           scrolledUnderElevation: 0,
         ),
@@ -175,8 +174,7 @@ class _Project2State extends State<Project2> {
                     width: MediaQuery.of(context).size.width * 0.9,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color:  Color.fromARGB(255, 27, 27, 27)
-                          ,
+                        color: Color.fromARGB(255, 27, 27, 27),
                         border: Border.all(
                             color: Color.fromARGB(255, 38, 38, 38), width: 1),
                         borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -192,7 +190,7 @@ class _Project2State extends State<Project2> {
                               width: 10,
                             ),
                             Text(
-                              'App/Web Developer',
+                              'Flutter Developer',
                               style: TextStyle(
                                   fontSize: 17,
                                   color: Color.fromARGB(255, 192, 192, 192)),
@@ -241,11 +239,9 @@ class _Project2State extends State<Project2> {
                               width: 10,
                             ),
                             Text(
-                              'Hi i\'m Isaac',
-                              style: TextStyle(
-                                  fontSize: 40,
-                                  color:
-                                   Colors.white ),
+                              'Hi, i\'m Isaac',
+                              style:
+                                  TextStyle(fontSize: 40, color: Colors.white),
                             ),
                           ],
                         ),
@@ -258,7 +254,8 @@ class _Project2State extends State<Project2> {
                             Container(
                               width: 600,
                               child: Text(
-                                  'I’m a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
+                                  'Building pixel-perfect mobile & web experiences. '
+                                  'Focused on clean architecture, fluid animations, and interfaces that feel alive.',
                                   style: GoogleFonts.inter(
                                       color:
                                           Color.fromARGB(255, 192, 192, 192)),
@@ -301,8 +298,7 @@ class _Project2State extends State<Project2> {
                                         BorderRadius.all(Radius.circular(5)),
                                     boxShadow: [
                                       BoxShadow(
-                                        color:  Colors.white.withOpacity(0.2)
-                                      ,
+                                        color: Colors.white.withOpacity(0.2),
                                         spreadRadius: 2,
                                         blurRadius: 5,
                                         offset: Offset(0,
@@ -312,65 +308,84 @@ class _Project2State extends State<Project2> {
                                   ),
                                   child: TextButton(
                                       onPressed: () {
-                showGeneralDialog(
-                  context: context,
-                  barrierDismissible: true,
-                  barrierLabel: "Menu",
-                  barrierColor: Colors.black.withOpacity(0.5),
-                  pageBuilder: (context, anim1, anim2) {
-                    return BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                      child: Center(
-                        child: Material(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(20),
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    TextButton(
-                                        onPressed: _launchlink,
-                                        child: Image.asset(
-                                          'assets/images/linkedin.png',
-                                          height: 30,
-                                        )),
-                                    TextButton(
-                                        onPressed: _launchgithub,
-                                        child: Image.asset(
-                                          'assets/images/github.png',
-                                          height: 30,
-                                        )),
-                                    TextButton(
-                                        onPressed: _launchEmail,
-                                        child: Image.asset(
-                                          'assets/images/gmail.png',
-                                          height: 25,
-                                        )),
-                                    TextButton(
-                                        onPressed: () {},
-                                        child: Image.asset(
-                                          'assets/images/whatsapp.png',
-                                          height: 30,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  transitionBuilder: (context, anim1, anim2, child) {
-                    return FadeTransition(opacity: anim1, child: child);
-                  },
-                  transitionDuration: const Duration(milliseconds: 200),
-                );
-              },
+                                        showGeneralDialog(
+                                          context: context,
+                                          barrierDismissible: true,
+                                          barrierLabel: "Menu",
+                                          barrierColor:
+                                              Colors.black.withOpacity(0.5),
+                                          pageBuilder: (context, anim1, anim2) {
+                                            return BackdropFilter(
+                                              filter: ImageFilter.blur(
+                                                  sigmaX: 5, sigmaY: 5),
+                                              child: Center(
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            20),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            TextButton(
+                                                                onPressed:
+                                                                    _launchlink,
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/linkedin.png',
+                                                                  height: 30,
+                                                                )),
+                                                            TextButton(
+                                                                onPressed:
+                                                                    _launchgithub,
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/github.png',
+                                                                  height: 30,
+                                                                )),
+                                                            TextButton(
+                                                                onPressed:
+                                                                    _launchEmail,
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/gmail.png',
+                                                                  height: 25,
+                                                                )),
+                                                            TextButton(
+                                                                onPressed:
+                                                                    () {},
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/whatsapp.png',
+                                                                  height: 30,
+                                                                )),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          transitionBuilder:
+                                              (context, anim1, anim2, child) {
+                                            return FadeTransition(
+                                                opacity: anim1, child: child);
+                                          },
+                                          transitionDuration:
+                                              const Duration(milliseconds: 200),
+                                        );
+                                      },
                                       child: Text(
                                         'Hire Me',
                                         style: TextStyle(
@@ -386,172 +401,19 @@ class _Project2State extends State<Project2> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Bounceable(
-                    onTap: () {},
-                    child: Container(
-                        height: 220,
-                        width: 400,
-                        padding: EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                            color:  Color.fromARGB(255, 27, 27, 27)
-                                ,
-                            border: Border.all(
-                                color: Color.fromARGB(255, 38, 38, 38),
-                                width: 1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.circle,
-                                  color: Color.fromARGB(255, 192, 192, 192),
-                                  size: 12,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Recent Work',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color:
-                                          Color.fromARGB(255, 192, 192, 192)),
-                                )
-                              ],
-                            ),
-
-//RECENT WORK
-
-                            SizedBox(
-                              height: 20,
-                            ),
-
-                            //1
-
-                            Row(
-                              // mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Moon Weather',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color: Color.fromARGB(255, 230, 62, 33),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text('Flutter Web',
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 192, 192, 192)))
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-
-                            //2
-
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Dotby Productions',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color: Color.fromARGB(255, 230, 62, 33),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text('Flutter Web',
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 192, 192, 192)))
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-
-                            //3
-
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Dotby Productions',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color: Color.fromARGB(255, 230, 62, 33),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text('Flutter Mobile',
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 192, 192, 192)))
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-
-                            //4
-
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Experience Site',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color: Color.fromARGB(255, 230, 62, 33),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text('Flutter Web',
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 192, 192, 192)))
-                              ],
-                            ),
-                          ],
-                        )),
-                  ),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Mobile()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MobileApps()));
                     },
                     child: Container(
                         height: 430,
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color:  Color.fromARGB(255, 27, 27, 27)
-                          ,
+                            color: Color.fromARGB(255, 27, 27, 27),
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -596,8 +458,7 @@ class _Project2State extends State<Project2> {
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color:  Color.fromARGB(255, 27, 27, 27)
-                                ,
+                            color: Color.fromARGB(255, 27, 27, 27),
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -645,8 +506,7 @@ class _Project2State extends State<Project2> {
                     width: 400,
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                        color:  Color.fromARGB(255, 27, 27, 27)
-                          ,
+                        color: Color.fromARGB(255, 27, 27, 27),
                         border: Border.all(
                             color: Color.fromARGB(255, 38, 38, 38), width: 1),
                         borderRadius: BorderRadius.all(Radius.circular(10))),

@@ -1,8 +1,9 @@
 import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dartby/dotby.dart';
-import 'package:dartby/mobile%20apps/mobile.dart';
+
+import 'package:dartby/mobile_apps.dart';
+
 import 'package:dartby/web%20apps/web.dart';
 
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class Project extends StatefulWidget {
 }
 
 class _ProjectState extends State<Project> {
- // bool isDarkMode = false;
+  // bool isDarkMode = false;
   final _advancedDrawerController = AdvancedDrawerController();
 
   final Uri githubUrl = Uri.parse('https://github.com/dbeum');
@@ -91,7 +92,7 @@ class _ProjectState extends State<Project> {
 
   @override
   Widget build(BuildContext context) {
-  //  bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    //  bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return AdvancedDrawer(
       backdrop: Container(
@@ -124,10 +125,58 @@ class _ProjectState extends State<Project> {
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
 
+      drawer: SafeArea(
+        child: Container(
+          child: ListTileTheme(
+            textColor: Colors.white,
+            iconColor: Colors.white,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SizedBox(
+                  height: 150,
+                ),
+                ListTile(
+                  onTap: _launchlink,
+                  leading: Image.asset(
+                    'assets/images/linkedin.png',
+                    height: 30,
+                  ),
+                  title: Text('LinkedIn'),
+                ),
+                ListTile(
+                  onTap: _launchgithub,
+                  leading: Image.asset(
+                    'assets/images/github.png',
+                    height: 30,
+                  ),
+                  title: Text('Github'),
+                ),
+                ListTile(
+                  onTap: _launchEmail,
+                  leading: Image.asset(
+                    'assets/images/gmail.png',
+                    height: 25,
+                  ),
+                  title: Text('Mail'),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: Image.asset(
+                    'assets/images/whatsapp.png',
+                    height: 30,
+                  ),
+                  title: Text('Whatsapp'),
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+      ),
       child: Scaffold(
           extendBodyBehindAppBar: false,
-          backgroundColor:
-              Color.fromARGB(255, 22, 22, 22),
+          backgroundColor: Color.fromARGB(255, 22, 22, 22),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -156,11 +205,11 @@ class _ProjectState extends State<Project> {
                   child: Bounceable(
                     onTap: () {},
                     child: Container(
-                        height: 560,
+                        height: 500,
                         width: 400,
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                            color:  Color.fromARGB(255, 27, 27, 27),
+                            color: Color.fromARGB(255, 27, 27, 27),
                             border: Border.all(
                                 color: Color.fromARGB(255, 38, 38, 38),
                                 width: 1),
@@ -216,7 +265,7 @@ class _ProjectState extends State<Project> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'App/Web Developer',
+                                  'FLutter Developer',
                                   style: TextStyle(
                                       fontSize: 17,
                                       color:
@@ -255,11 +304,9 @@ class _ProjectState extends State<Project> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'Hi i\'m Isaac',
+                                  'Hi, i\'m Isaac',
                                   style: TextStyle(
-                                      fontSize: 25,
-                                      color:  Colors.white
-                                         ),
+                                      fontSize: 25, color: Colors.white),
                                 ),
                               ],
                             ),
@@ -269,7 +316,8 @@ class _ProjectState extends State<Project> {
                             Container(
                               width: 400,
                               child: Text(
-                                  'I’m a cross-platform mobile and web developer with a strong focus on Flutter. I create efficient, user-friendly applications with a mix of great UI/UX and clean code.I enjoy building products that solve real problems, and I’m constantly learning to improve both my frontend and backend skills. From prototyping in Figma to deploying functional apps, I love bringing ideas to life — one widget at a time.',
+                                  'Building pixel-perfect mobile & web experiences. '
+                                  'Focused on clean architecture, fluid animations, and interfaces that feel alive.',
                                   style: GoogleFonts.inter(
                                       color:
                                           Color.fromARGB(255, 192, 192, 192)),
@@ -294,8 +342,8 @@ class _ProjectState extends State<Project> {
                                             Radius.circular(5)),
                                         boxShadow: [
                                           BoxShadow(
-                                            color:Colors.white.withOpacity(0.2)
-                                                ,
+                                            color:
+                                                Colors.white.withOpacity(0.2),
                                             spreadRadius: 2,
                                             blurRadius: 5,
                                             offset: Offset(0,
@@ -319,172 +367,17 @@ class _ProjectState extends State<Project> {
                 SizedBox(
                   height: 20,
                 ),
-
-                //RECENT WORK
-                TextButton(
-                    onPressed: () {},
-                    child: Bounceable(
-                      onTap: () {},
-                      child: Container(
-                          height: 220,
-                          width: 400,
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                              color:  Color.fromARGB(255, 27, 27, 27)
-                                  ,
-                              border: Border.all(
-                                  color: Color.fromARGB(255, 38, 38, 38),
-                                  width: 1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.circle,
-                                    color: Color.fromARGB(255, 192, 192, 192),
-                                    size: 12,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Recent Work',
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        color:
-                                            Color.fromARGB(255, 192, 192, 192)),
-                                  )
-                                ],
-                              ),
-
-//1
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Row(
-                                // mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Moon Weather',
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        color: Color.fromARGB(255, 230, 62, 33),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text('Flutter Web',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Color.fromARGB(
-                                              255, 192, 192, 192)))
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-
-                              //2
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Dotby Productions',
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        color: Color.fromARGB(255, 230, 62, 33),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text('Flutter Web',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Color.fromARGB(
-                                              255, 192, 192, 192)))
-                                ],
-                              ),
-
-                              //3
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Dotby Productions',
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        color: Color.fromARGB(255, 230, 62, 33),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text('Flutter Mobile',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Color.fromARGB(
-                                              255, 192, 192, 192)))
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              //4
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Experience Site',
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        color: Color.fromARGB(255, 230, 62, 33),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text('Flutter Web',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Color.fromARGB(
-                                              255, 192, 192, 192)))
-                                ],
-                              ),
-                            ],
-                          )),
-                    )),
-                SizedBox(
-                  height: 20,
-                ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Mobile()));
+                        MaterialPageRoute(builder: (context) => MobileApps()));
                   },
                   child: Container(
                       height: 430,
                       width: 400,
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                          color:Color.fromARGB(255, 27, 27, 27)
-                            ,
+                          color: Color.fromARGB(255, 27, 27, 27),
                           border: Border.all(
                               color: Color.fromARGB(255, 38, 38, 38), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -530,7 +423,6 @@ class _ProjectState extends State<Project> {
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
                           color: Color.fromARGB(255, 27, 27, 27),
-                              
                           border: Border.all(
                               color: Color.fromARGB(255, 38, 38, 38), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -574,8 +466,7 @@ class _ProjectState extends State<Project> {
                           width: 400,
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
-                              color:  Color.fromARGB(255, 27, 27, 27)
-                            ,
+                              color: Color.fromARGB(255, 27, 27, 27),
                               border: Border.all(
                                   color: Color.fromARGB(255, 38, 38, 38),
                                   width: 1),
@@ -673,55 +564,6 @@ class _ProjectState extends State<Project> {
               ],
             ),
           )),
-      drawer: SafeArea(
-        child: Container(
-          child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                SizedBox(
-                  height: 150,
-                ),
-                ListTile(
-                  onTap: _launchlink,
-                  leading: Image.asset(
-                    'assets/images/linkedin.png',
-                    height: 30,
-                  ),
-                  title: Text('LinkedIn'),
-                ),
-                ListTile(
-                  onTap: _launchgithub,
-                  leading: Image.asset(
-                    'assets/images/github.png',
-                    height: 30,
-                  ),
-                  title: Text('Github'),
-                ),
-                ListTile(
-                  onTap: _launchEmail,
-                  leading: Image.asset(
-                    'assets/images/gmail.png',
-                    height: 25,
-                  ),
-                  title: Text('Mail'),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: Image.asset(
-                    'assets/images/whatsapp.png',
-                    height: 30,
-                  ),
-                  title: Text('Whatsapp'),
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 

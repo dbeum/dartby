@@ -1,26 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class Dotby extends StatefulWidget {
-  const Dotby({super.key});
+class Finova extends StatefulWidget {
+  const Finova({super.key});
 
   @override
-  State<Dotby> createState() => _DotbyState();
+  State<Finova> createState() => _FinovaState();
 }
 
-class _DotbyState extends State<Dotby> {
+class _FinovaState extends State<Finova> {
   static const List<String> _images = [
-    'assets/images/dotby.png',
-    'assets/images/dotby2.png',
-    'assets/images/dotby3.png',
-    'assets/images/dotby4.png',
-    'assets/images/dotby5.png',
-    'assets/images/dotby6.png',
-    'assets/images/dotby7.png',
-    'assets/images/dotby8.png',
-    'assets/images/dotby9.png',
+    'assets/images/fin1.png',
+    'assets/images/fin2.png',
+    'assets/images/fin3.png',
+    'assets/images/fin4.png',
+    'assets/images/fin5.png',
+    'assets/images/fin6.png',
+    'assets/images/fin7.png',
+    'assets/images/fin8.png'
   ];
+  final Uri playstoreUrl =
+      Uri.parse('https://play.google.com/store/apps/developer?id=F.C.A');
+
+  Future<void> _launchplaystore() async {
+    if (!await launchUrl(playstoreUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $playstoreUrl';
+    }
+  }
+
+  final Uri mypayUrl = Uri.parse(
+      'https://apps.apple.com/ng/app/mypay-business-app/id6755962618');
+
+  Future<void> _launchmypay() async {
+    if (!await launchUrl(mypayUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $mypayUrl';
+    }
+  }
+
+  final Uri villpayUrl =
+      Uri.parse('https://apps.apple.com/ng/app/villpay/id6755962595');
+
+  Future<void> _launchvillpay() async {
+    if (!await launchUrl(villpayUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $villpayUrl';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +62,6 @@ class _DotbyState extends State<Dotby> {
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
                   const SizedBox(height: 48),
-
                   Row(
                     children: [
                       Container(
@@ -60,7 +85,7 @@ class _DotbyState extends State<Dotby> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    "Dotby",
+                    "Finova Africa",
                     style: GoogleFonts.playfairDisplay(
                       color: Colors.white,
                       fontSize: 52,
@@ -71,16 +96,53 @@ class _DotbyState extends State<Dotby> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'A sleek, cross-platform app that mirrors the company\'s full services: users can book event coverage, rent media equipment, sign up as vendors, and explore offerings — all from their phones, with a smooth and intuitive interface.',
+                    'Developed and maintained a scalable Flutter based fintech app providing seamless digital financial services,deployed for 30+ fintech brands.',
                     style: GoogleFonts.spaceGrotesk(
                       color: Color(0xFF8A8A9A),
                       fontSize: 15,
                       height: 1.7,
                     ),
                   ),
-
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: _launchplaystore,
+                    child: Text(
+                      'View on Playstore',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: _launchmypay,
+                    child: Text(
+                      'View on Appstore(MyPay)',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: _launchvillpay,
+                    child: Text(
+                      'View on Appstore(Villpay)',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
+                    ),
+                  ),
                   const SizedBox(height: 48),
-
                   Row(
                     children: [
                       Text(
@@ -98,9 +160,7 @@ class _DotbyState extends State<Dotby> {
                               Container(height: 1, color: Color(0xFF2A2A3A))),
                     ],
                   ),
-
                   const SizedBox(height: 24),
-
                   SizedBox(
                     height: 480,
                     child: ListView.separated(
@@ -145,10 +205,7 @@ class _DotbyState extends State<Dotby> {
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 10),
-
-                  // Scroll hint
                   Row(
                     children: [
                       const Icon(Icons.swipe_rounded,
@@ -164,7 +221,6 @@ class _DotbyState extends State<Dotby> {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 64),
                 ]),
               ),

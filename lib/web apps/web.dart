@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dartby/dotby.dart';
+
 import 'package:dartby/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
