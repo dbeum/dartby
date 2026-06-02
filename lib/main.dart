@@ -16,21 +16,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dartby',
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         useMaterial3: true,
-
-        primarySwatch: Colors.deepOrange,
-        textTheme: TextTheme(
-          bodyLarge: TextStyle(color: Colors.black),
-          bodyMedium: TextStyle(color: Colors.black),
-          bodySmall: TextStyle(color: Colors.black),
-        ),
-        // Other theme settings...
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark, // Dark theme
-        useMaterial3: true,
-        // Define your dark theme here
         primarySwatch: Colors.deepOrange,
         scaffoldBackgroundColor: Color.fromARGB(255, 32, 32, 32),
         textTheme: TextTheme(
@@ -39,7 +26,6 @@ class MainApp extends StatelessWidget {
           bodySmall: TextStyle(color: Colors.white),
         ),
       ),
-      themeMode: ThemeMode.system,
       home: Homes(),
       debugShowCheckedModeBanner: false,
     );
