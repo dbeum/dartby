@@ -15,7 +15,7 @@ class Web extends StatefulWidget {
 
 class _WebState extends State<Web> {
   bool isDarkMode = false;
-  final Uri dotbyUrl = Uri.parse('https://dotbyproductions.com/');
+  final Uri dotbyUrl = Uri.parse('https://dotby-37e3f.web.app/');
 
   Future<void> _launchdotby() async {
     // Use launchUrl for web compatibility
@@ -146,18 +146,6 @@ class _WebState extends State<Web> {
                                   textStyle: const TextStyle(
                                 fontWeight: FontWeight.w900,
                               ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
-                          ),
                           Container(
                             width: 170,
                             child: Text(
@@ -278,18 +266,6 @@ class _WebState extends State<Web> {
                                   textStyle: const TextStyle(
                                 fontWeight: FontWeight.w900,
                               ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
-                          ),
                           Container(
                             width: 170,
                             child: Text(
@@ -313,81 +289,68 @@ class _WebState extends State<Web> {
               ),
 
               //ITEM 4
-              Column(
-                children: [
-                  Align(
-                      alignment: Alignment.topCenter,
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        height: 100,
-                      )),
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          TextButton(
-                            onPressed: _launchexperience,
-                            child: Container(
-                                padding: EdgeInsets.all(2.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  border: Border.all(
-                                    color: Color.fromARGB(255, 192, 192, 192),
-                                    width: 2.0,
-                                  ),
-                                ),
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                    child: Image.asset(
-                                      'assets/images/3d.png',
-                                      height: 150,
-                                    ))),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text('Experience Site',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
-                          ),
-                          Container(
-                            width: 200,
-                            child: Text(
-                              'Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site\'s an experience.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: Image.asset(
-                        'assets/images/web.png',
-                        height: 100,
-                      )),
-                ],
-              ),
-              //
+              // Column(
+              //   children: [
+              //     Align(
+              //         alignment: Alignment.topCenter,
+              //         child: Image.asset(
+              //           'assets/images/logo.png',
+              //           height: 100,
+              //         )),
+              //     Row(
+              //       children: [
+              //         Column(
+              //           children: [
+              //             TextButton(
+              //               onPressed: _launchexperience,
+              //               child: Container(
+              //                   padding: EdgeInsets.all(2.0),
+              //                   decoration: BoxDecoration(
+              //                     borderRadius: BorderRadius.circular(20.0),
+              //                     border: Border.all(
+              //                       color: Color.fromARGB(255, 192, 192, 192),
+              //                       width: 2.0,
+              //                     ),
+              //                   ),
+              //                   child: ClipRRect(
+              //                       borderRadius: BorderRadius.circular(15.0),
+              //                       child: Image.asset(
+              //                         'assets/images/3d.png',
+              //                         height: 150,
+              //                       ))),
+              //             ),
+              //             SizedBox(
+              //               height: 20,
+              //             ),
+              //             Text('Experience Site',
+              //                 style: GoogleFonts.sanchez(
+              //                     textStyle: const TextStyle(
+              //                   fontWeight: FontWeight.w900,
+              //                 ))),
+              //             Container(
+              //               width: 200,
+              //               child: Text(
+              //                 'Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site\'s an experience.',
+              //                 style: TextStyle(fontSize: 12),
+              //                 textAlign: TextAlign.center,
+              //                 softWrap: true,
+              //               ),
+              //             )
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //     SizedBox(
+              //       height: 50,
+              //     ),
+              //     Align(
+              //         alignment: Alignment.centerRight,
+              //         child: Image.asset(
+              //           'assets/images/web.png',
+              //           height: 100,
+              //         )),
+              //   ],
+              // ),
             ],
           ),
         ));
@@ -423,55 +386,39 @@ class _WebState extends State<Web> {
                         'assets/images/logo1.png',
                         height: 100,
                       )),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: _launchdotby,
-                        child: Container(
-                            padding: EdgeInsets.all(2.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 192, 192, 192),
-                                width: 2.0,
-                              ),
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                  'assets/images/dotby1.jpg',
-                                  height: 250,
-                                ))),
-                      ),
-                      Column(
-                        children: [
-                          Text('Dotby Production',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
+                  TextButton(
+                    onPressed: _launchdotby,
+                    child: Container(
+                        padding: EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 192, 192, 192),
+                            width: 2.0,
                           ),
-                          Container(
-                            width: 400,
-                            child: Text(
-                              'A full-featured platform built for a creative media agency. It allows users to rent equipment, book event coverage, apply as vendors, and explore services — all in one seamless, responsive experience.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.asset(
+                              'assets/images/dotby1.jpg',
+                              height: 300,
+                            ))),
+                  ),
+                  Column(
+                    children: [
+                      Text('Dotby Production',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                            fontWeight: FontWeight.w900,
+                          ))),
+                      Container(
+                        width: 400,
+                        child: Text(
+                          'A full-featured platform built for a creative media agency. It allows users to rent equipment, book event coverage, apply as vendors, and explore services — all in one seamless, responsive experience.',
+                          style: TextStyle(fontSize: 12),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                        ),
                       )
                     ],
                   ),
@@ -481,9 +428,6 @@ class _WebState extends State<Web> {
                         'assets/images/web.png',
                         height: 100,
                       )),
-                  // Align(alignment: Alignment.bottomCenter,
-                  // child: Image.asset( 'assets/images/android.png' ,height: 100,)
-                  // ),
                 ],
               ),
 
@@ -516,7 +460,7 @@ class _WebState extends State<Web> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.asset(
                               'assets/images/wd.jpg',
-                              height: 250,
+                              height: 300,
                             ))),
                   ),
                   Align(
@@ -536,55 +480,39 @@ class _WebState extends State<Web> {
                         'assets/images/logo.png',
                         height: 100,
                       )),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: _launchproject,
-                        child: Container(
-                            padding: EdgeInsets.all(2.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 192, 192, 192),
-                                width: 2.0,
-                              ),
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                  'assets/images/project.png',
-                                  height: 250,
-                                ))),
-                      ),
-                      Column(
-                        children: [
-                          Text('Moon Portfolio',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
+                  TextButton(
+                    onPressed: _launchproject,
+                    child: Container(
+                        padding: EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 192, 192, 192),
+                            width: 2.0,
                           ),
-                          Container(
-                            width: 400,
-                            child: Text(
-                              'Launch Your Personal Website in Minutes.Pick a design, add your info — we’ll handle the rest. Create a stunning personal website effortlessly with ready-made templates, customized to showcase your work, identity, or brand in just a few clicks.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.asset(
+                              'assets/images/project.png',
+                              height: 300,
+                            ))),
+                  ),
+                  Column(
+                    children: [
+                      Text('Moon Portfolio',
+                          style: GoogleFonts.sanchez(
+                              textStyle: const TextStyle(
+                            fontWeight: FontWeight.w900,
+                          ))),
+                      Container(
+                        width: 400,
+                        child: Text(
+                          'Launch Your Personal Website in Minutes.Pick a design, add your info — we’ll handle the rest. Create a stunning personal website effortlessly with ready-made templates, customized to showcase your work, identity, or brand in just a few clicks.',
+                          style: TextStyle(fontSize: 12),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                        ),
                       )
                     ],
                   ),
@@ -598,74 +526,58 @@ class _WebState extends State<Web> {
               ),
 
               //ITEM 4
-              Column(
-                children: [
-                  Align(
-                      alignment: Alignment.topCenter,
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        height: 100,
-                      )),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: _launchexperience,
-                        child: Container(
-                            padding: EdgeInsets.all(2.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 192, 192, 192),
-                                width: 2.0,
-                              ),
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                  'assets/images/3d.png',
-                                  height: 250,
-                                ))),
-                      ),
-                      Column(
-                        children: [
-                          Text('Experience Site',
-                              style: GoogleFonts.sanchez(
-                                  textStyle: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                              ))),
-                          Row(
-                            children: [
-                              const Text('Platform:',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 192, 192, 192),
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text('Flutter Web'),
-                            ],
-                          ),
-                          Container(
-                            width: 400,
-                            child: Text(
-                              'Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site — \'s an experience.',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                              softWrap: true,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: Image.asset(
-                        'assets/images/web.png',
-                        height: 100,
-                      )),
-                ],
-              ),
+              // Column(
+              //   children: [
+              //     Align(
+              //         alignment: Alignment.topCenter,
+              //         child: Image.asset(
+              //           'assets/images/logo.png',
+              //           height: 100,
+              //         )),
+              //     TextButton(
+              //       onPressed: _launchexperience,
+              //       child: Container(
+              //           padding: EdgeInsets.all(2.0),
+              //           decoration: BoxDecoration(
+              //             borderRadius: BorderRadius.circular(20.0),
+              //             border: Border.all(
+              //               color: Color.fromARGB(255, 192, 192, 192),
+              //               width: 2.0,
+              //             ),
+              //           ),
+              //           child: ClipRRect(
+              //               borderRadius: BorderRadius.circular(15.0),
+              //               child: Image.asset(
+              //                 'assets/images/3d.png',
+              //                 height: 250,
+              //               ))),
+              //     ),
+              //     Column(
+              //       children: [
+              //         Text('Experience Site',
+              //             style: GoogleFonts.sanchez(
+              //                 textStyle: const TextStyle(
+              //               fontWeight: FontWeight.w900,
+              //             ))),
+              //         Container(
+              //           width: 400,
+              //           child: Text(
+              //             'Step into my world of motion and depth — a visual playground where animations, videos, and 3D effects bring creativity to life. This isn\'t just a site — \'s an experience.',
+              //             style: TextStyle(fontSize: 12),
+              //             textAlign: TextAlign.center,
+              //             softWrap: true,
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //     Align(
+              //         alignment: Alignment.centerRight,
+              //         child: Image.asset(
+              //           'assets/images/web.png',
+              //           height: 100,
+              //         )),
+              //   ],
+              // ),
               //
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:dartby/aria.dart';
 import 'package:dartby/dotby.dart';
 import 'package:dartby/finova.dart';
+import 'package:dartby/fraudwatch.dart' show Fraudwatch;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -249,12 +250,22 @@ class _MobileAppsState extends State<MobileApps> {
                           index: 2,
                           title: 'Finova Africa',
                           subtitle: 'Fintech Core Banking',
-                          tag: 'Android',
-                          tagColor: const Color(0xFF4A90D9),
+                          tag: 'Android & iOS',
+                          tagColor: Colors.purple,
                           imagePath: 'assets/images/fin2.png',
                           description:
                               'A core banking solution built for the African fintech ecosystem.',
                           onTap: () => _push(Finova()),
+                        ),
+                        _buildProjectCard(
+                          index: 4,
+                          title: 'FraudWatch360',
+                          subtitle: 'Fraud protection app',
+                          tag: 'Android & iOS',
+                          tagColor: Colors.blue,
+                          imagePath: 'assets/images/fw6.png',
+                          description: 'Protect Against Fraud & Scams',
+                          onTap: () => _push(Fraudwatch()),
                         ),
                         _buildProjectCard(
                           index: 3,
@@ -269,18 +280,6 @@ class _MobileAppsState extends State<MobileApps> {
                         ),
                         _buildProjectCard(
                           index: 4,
-                          title: 'Spotify Clone',
-                          subtitle: 'Music Streaming',
-                          tag: 'Android',
-                          tagColor: const Color(0xFF1DB954),
-                          imagePath: 'assets/images/spotify.png',
-                          description:
-                              'Full-featured music streaming UI clone with playback controls.',
-                          onTap: () => _launch(
-                              'https://drive.google.com/file/d/1KqZFygRNSjah-sCUN64dPKc9TS86IKTp/view?usp=drive_link'),
-                        ),
-                        _buildProjectCard(
-                          index: 5,
                           title: 'StreamNest',
                           subtitle: 'Video Platform',
                           tag: 'Android & Web',
@@ -326,12 +325,24 @@ class _MobileAppsState extends State<MobileApps> {
                           index: 2,
                           title: 'Finova Africa',
                           subtitle: 'Fintech Core Banking',
-                          tag: 'Android',
-                          tagColor: const Color(0xFF4A90D9),
+                          tag: 'Android & iOS',
+                          tagColor: Colors.purple,
                           imagePath: 'assets/images/fin2.png',
                           description:
                               'A core banking solution built for the African fintech ecosystem.',
                           onTap: () => _push(Finova()),
+                          mobileHeight: 400,
+                        ),
+                        const SizedBox(height: 16),
+                        _buildProjectCard(
+                          index: 2,
+                          title: 'FraudWatch360',
+                          subtitle: 'Fraud protection app',
+                          tag: 'Android & iOS',
+                          tagColor: Colors.blue,
+                          imagePath: 'assets/images/fw2.png',
+                          description: 'Protect Against Fraud & Scams',
+                          onTap: () => _push(Fraudwatch()),
                           mobileHeight: 400,
                         ),
                         const SizedBox(height: 16),
@@ -350,20 +361,6 @@ class _MobileAppsState extends State<MobileApps> {
                         const SizedBox(height: 16),
                         _buildProjectCard(
                           index: 4,
-                          title: 'Spotify Clone',
-                          subtitle: 'Music Streaming',
-                          tag: 'Android',
-                          tagColor: const Color(0xFF1DB954),
-                          imagePath: 'assets/images/spotify.png',
-                          description:
-                              'Full-featured music streaming UI clone with playback controls.',
-                          onTap: () => _launch(
-                              'https://drive.google.com/file/d/1KqZFygRNSjah-sCUN64dPKc9TS86IKTp/view?usp=drive_link'),
-                          mobileHeight: 400,
-                        ),
-                        const SizedBox(height: 16),
-                        _buildProjectCard(
-                          index: 5,
                           title: 'StreamNest',
                           subtitle: 'Video Platform',
                           tag: 'Android & Web',

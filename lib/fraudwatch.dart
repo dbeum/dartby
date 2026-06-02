@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Aria extends StatefulWidget {
-  const Aria({super.key});
+class Fraudwatch extends StatefulWidget {
+  const Fraudwatch({super.key});
 
   @override
-  State<Aria> createState() => _AriaState();
+  State<Fraudwatch> createState() => _FraudwatchState();
 }
 
-class _AriaState extends State<Aria> {
+class _FraudwatchState extends State<Fraudwatch> {
   static const List<String> _images = [
-    'assets/images/aria1.png',
-    'assets/images/aria2.png',
-    'assets/images/aria3.png',
-    'assets/images/aria4.png',
-    'assets/images/aria5.png',
+    'assets/images/fw1.png',
+    'assets/images/fw2.png',
+    'assets/images/fw3.png',
+    'assets/images/fw4.png',
+    'assets/images/fw5.png',
+    'assets/images/fw6.png',
   ];
 
   @override
@@ -55,7 +56,7 @@ class _AriaState extends State<Aria> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    "Aria Luxury",
+                    "FraudWatch360",
                     style: GoogleFonts.playfairDisplay(
                       color: Colors.white,
                       fontSize: 52,
@@ -66,7 +67,7 @@ class _AriaState extends State<Aria> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'A cross-platform app where car owners can list their vehicles for rent and users can browse, book, and pay for rides — all through a seamless and intuitive mobile experience.',
+                    'AI-powered scam detection & real-time fraud alerts to keep you safe.',
                     style: GoogleFonts.spaceGrotesk(
                       color: Color(0xFF8A8A9A),
                       fontSize: 15,
