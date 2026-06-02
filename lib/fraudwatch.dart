@@ -59,7 +59,7 @@ class _FraudwatchState extends State<Fraudwatch> {
                     "FraudWatch360",
                     style: GoogleFonts.playfairDisplay(
                       color: Colors.white,
-                      fontSize: 52,
+                      fontSize: 51,
                       fontWeight: FontWeight.w800,
                       height: 1.05,
                       letterSpacing: -1,
