@@ -12,14 +12,14 @@ class Finova extends StatefulWidget {
 
 class _FinovaState extends State<Finova> {
   static const List<String> _images = [
-    'assets/images/fin1.PNG',
+    'assets/images/fin1.png',
     'assets/images/fin2.png',
-    'assets/images/fin3.PNG',
-    'assets/images/fin4.PNG',
-    'assets/images/fin5.PNG',
-    'assets/images/fin6.PNG',
-    'assets/images/fin7.PNG',
-    'assets/images/fin8.PNG'
+    'assets/images/fin3.png',
+    'assets/images/fin4.png',
+    'assets/images/fin5.png',
+    'assets/images/fin6.png',
+    'assets/images/fin7.png',
+    'assets/images/fin8.png'
   ];
   final Uri playstoreUrl =
       Uri.parse('https://play.google.com/store/apps/developer?id=F.C.A');
