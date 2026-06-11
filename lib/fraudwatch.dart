@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Fraudwatch extends StatefulWidget {
   const Fraudwatch({super.key});
@@ -18,6 +19,23 @@ class _FraudwatchState extends State<Fraudwatch> {
     'assets/images/fw5.png',
     'assets/images/fw6.png',
   ];
+  final Uri playstoreUrl =
+      Uri.parse('https://play.google.com/store/apps/details?id=com.fw360.uk');
+
+  Future<void> _launchplaystore() async {
+    if (!await launchUrl(playstoreUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $playstoreUrl';
+    }
+  }
+
+  final Uri appstoreUrl =
+      Uri.parse('https://apps.apple.com/ng/app/fraud-watch-360/id6759293776');
+
+  Future<void> _launchappstore() async {
+    if (!await launchUrl(appstoreUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $appstoreUrl';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +90,32 @@ class _FraudwatchState extends State<Fraudwatch> {
                       color: Color(0xFF8A8A9A),
                       fontSize: 15,
                       height: 1.7,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: _launchplaystore,
+                    child: Text(
+                      'View on Playstore',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: _launchappstore,
+                    child: Text(
+                      'View on Appstore',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
                     ),
                   ),
                   const SizedBox(height: 48),
