@@ -74,10 +74,10 @@ class _FraudwatchState extends State<Fraudwatch> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    "FraudWatch360",
+                    "Fraud Watch360",
                     style: GoogleFonts.playfairDisplay(
                       color: Colors.white,
-                      fontSize: 51,
+                      fontSize: 49,
                       fontWeight: FontWeight.w800,
                       height: 1.05,
                       letterSpacing: -1,
