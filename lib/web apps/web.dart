@@ -18,7 +18,6 @@ class _WebState extends State<Web> {
   final Uri dotbyUrl = Uri.parse('https://dotby-37e3f.web.app/');
 
   Future<void> _launchdotby() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(dotbyUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $dotbyUrl';
     }
@@ -27,7 +26,6 @@ class _WebState extends State<Web> {
   final Uri projectUrl = Uri.parse('https://project-p-48c57.web.app');
 
   Future<void> _launchproject() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(projectUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $projectUrl';
     }
@@ -36,7 +34,6 @@ class _WebState extends State<Web> {
   final Uri experienceUrl = Uri.parse('https://fly3d-e0b37.web.app/');
 
   Future<void> _launchexperience() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(experienceUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $experienceUrl';
     }
@@ -46,7 +43,6 @@ class _WebState extends State<Web> {
       'https://www.linkedin.com/in/isaac-olowofela-b77767223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app');
 
   Future<void> _launchlink() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(linkUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $linkUrl';
     }
@@ -54,13 +50,12 @@ class _WebState extends State<Web> {
 
   final String email = 'entrydirect@gmail.com';
 
-  // Function to open email app
   void _launchEmail() async {
     final Uri emailUri = Uri(
       scheme: 'mailto',
       path: email,
       query: Uri.encodeFull(
-          'subject=Hello&body=I would like to reach you regarding...'), // optional pre-filled subject and body
+          'subject=Hello&body=I would like to reach you regarding...'),
     );
 
     if (await canLaunch(emailUri.toString())) {
@@ -73,7 +68,6 @@ class _WebState extends State<Web> {
   final Uri weatherUrl = Uri.parse('https://weather-30f59.web.app/');
 
   Future<void> _launchweather() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(weatherUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $weatherUrl';
     }
@@ -90,7 +84,6 @@ class _WebState extends State<Web> {
   }
 
   Widget MobileNavBar() {
-    //bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(

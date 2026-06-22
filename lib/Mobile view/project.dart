@@ -23,13 +23,11 @@ class Project extends StatefulWidget {
 }
 
 class _ProjectState extends State<Project> {
-  // bool isDarkMode = false;
   final _advancedDrawerController = AdvancedDrawerController();
 
   final Uri githubUrl = Uri.parse('https://github.com/dbeum');
 
   Future<void> _launchgithub() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(githubUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $githubUrl';
     }
@@ -38,7 +36,6 @@ class _ProjectState extends State<Project> {
   final Uri dotbyUrl = Uri.parse('https://dotby-37e3f.web.app/');
 
   Future<void> _launchdotby() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(dotbyUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $dotbyUrl';
     }
@@ -47,7 +44,6 @@ class _ProjectState extends State<Project> {
   final Uri styleUrl = Uri.parse('https://styleby-14f06.web.app/');
 
   Future<void> _launchstyle() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(styleUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $styleUrl';
     }
@@ -57,7 +53,6 @@ class _ProjectState extends State<Project> {
       'https://www.linkedin.com/in/isaac-olowofela-b77767223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app');
 
   Future<void> _launchlink() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(linkUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $linkUrl';
     }
@@ -65,13 +60,12 @@ class _ProjectState extends State<Project> {
 
   final String email = 'entrydirect@gmail.com';
 
-  // Function to open email app
   void _launchEmail() async {
     final Uri emailUri = Uri(
       scheme: 'mailto',
       path: email,
       query: Uri.encodeFull(
-          'subject=Hello&body=I would like to reach you regarding...'), // optional pre-filled subject and body
+          'subject=Hello&body=I would like to reach you regarding...'),
     );
 
     if (await canLaunch(emailUri.toString())) {
@@ -84,7 +78,6 @@ class _ProjectState extends State<Project> {
   final Uri weatherUrl = Uri.parse('https://weather-30f59.web.app/');
 
   Future<void> _launchweather() async {
-    // Use launchUrl for web compatibility
     if (!await launchUrl(weatherUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $weatherUrl';
     }
