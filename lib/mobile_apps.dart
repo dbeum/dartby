@@ -314,7 +314,7 @@ class _MobileAppsState extends State<MobileApps> {
                           subtitle: 'Car Rental App',
                           tag: 'Android & iOS',
                           tagColor: const Color(0xFF4A90D9),
-                          imagePath: 'assets/images/aria1.png',
+                          imagePath: 'assets/images/aria2.png',
                           description:
                               'A premium car rental experience with a sleek and intuitive interface.',
                           onTap: () => _push(Aria()),

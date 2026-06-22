@@ -11,7 +11,6 @@ class Aria extends StatefulWidget {
 
 class _AriaState extends State<Aria> {
   static const List<String> _images = [
-    'assets/images/aria1.png',
     'assets/images/aria2.png',
     'assets/images/aria3.png',
     'assets/images/aria4.png',
@@ -38,8 +37,9 @@ class _AriaState extends State<Aria> {
                         width: 7,
                         height: 7,
                         decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 230, 62, 33),
-                            shape: BoxShape.circle),
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          shape: BoxShape.circle,
+                        ),
                       ),
                       const SizedBox(width: 10),
                       Text(
@@ -87,8 +87,8 @@ class _AriaState extends State<Aria> {
                       ),
                       const SizedBox(width: 16),
                       Expanded(
-                          child:
-                              Container(height: 1, color: Color(0xFF2A2A3A))),
+                        child: Container(height: 1, color: Color(0xFF2A2A3A)),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -118,8 +118,11 @@ class _AriaState extends State<Aria> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Icon(Icons.phone_android_rounded,
-                                      color: Color(0xFF2A2A3A), size: 36),
+                                  const Icon(
+                                    Icons.phone_android_rounded,
+                                    color: Color(0xFF2A2A3A),
+                                    size: 36,
+                                  ),
                                   const SizedBox(height: 10),
                                   Text(
                                     'Screen ${i + 1}',
@@ -139,8 +142,11 @@ class _AriaState extends State<Aria> {
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      const Icon(Icons.swipe_rounded,
-                          color: Color(0xFF8A8A9A), size: 13),
+                      const Icon(
+                        Icons.swipe_rounded,
+                        color: Color(0xFF8A8A9A),
+                        size: 13,
+                      ),
                       const SizedBox(width: 6),
                       Text(
                         'Swipe to see more  ·  tap to expand',
@@ -163,7 +169,10 @@ class _AriaState extends State<Aria> {
   }
 
   void _openFullscreen(
-      BuildContext context, List<String> images, int startIndex) {
+    BuildContext context,
+    List<String> images,
+    int startIndex,
+  ) {
     Navigator.push(
       context,
       PageRouteBuilder(
@@ -227,8 +236,11 @@ class _FullscreenGalleryState extends State<_FullscreenGallery> {
                       color: Color(0xFF1A1A26),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: const Icon(Icons.image_not_supported_outlined,
-                        color: Color(0xFF2A2A3A), size: 48),
+                    child: const Icon(
+                      Icons.image_not_supported_outlined,
+                      color: Color(0xFF2A2A3A),
+                      size: 48,
+                    ),
                   ),
                 ),
               ),
@@ -246,8 +258,11 @@ class _FullscreenGalleryState extends State<_FullscreenGallery> {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Color(0xFF2A2A3A)),
                 ),
-                child: const Icon(Icons.close_rounded,
-                    color: Color(0xFF8A8A9A), size: 20),
+                child: const Icon(
+                  Icons.close_rounded,
+                  color: Color(0xFF8A8A9A),
+                  size: 20,
+                ),
               ),
             ),
           ),
