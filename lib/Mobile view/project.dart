@@ -168,205 +168,37 @@ class _ProjectState extends State<Project> {
         ),
       ),
       child: Scaffold(
-          extendBodyBehindAppBar: false,
-          backgroundColor: Color.fromARGB(255, 22, 22, 22),
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            scrolledUnderElevation: 0,
-            leading: IconButton(
-              onPressed: _handleMenuButtonPressed,
-              icon: ValueListenableBuilder<AdvancedDrawerValue>(
-                valueListenable: _advancedDrawerController,
-                builder: (_, value, __) {
-                  return AnimatedSwitcher(
-                    duration: Duration(milliseconds: 250),
-                    child: Icon(
-                      value.visible ? Icons.clear : Icons.menu,
-                      key: ValueKey<bool>(value.visible),
-                    ),
-                  );
-                },
-              ),
+        extendBodyBehindAppBar: false,
+        backgroundColor: Color.fromARGB(255, 22, 22, 22),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          leading: IconButton(
+            onPressed: _handleMenuButtonPressed,
+            icon: ValueListenableBuilder<AdvancedDrawerValue>(
+              valueListenable: _advancedDrawerController,
+              builder: (_, value, __) {
+                return AnimatedSwitcher(
+                  duration: Duration(milliseconds: 250),
+                  child: Icon(
+                    value.visible ? Icons.clear : Icons.menu,
+                    key: ValueKey<bool>(value.visible),
+                  ),
+                );
+              },
             ),
           ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: Bounceable(
-                    onTap: () {},
-                    child: Container(
-                        height: 500,
-                        width: 400,
-                        padding: EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 27, 27, 27),
-                            border: Border.all(
-                                color: Color.fromARGB(255, 38, 38, 38),
-                                width: 1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  height: 30,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Color.fromARGB(255, 22, 22, 22),
-                                      border: Border.all(
-                                          width: 2,
-                                          color:
-                                              Color.fromARGB(255, 38, 38, 38))),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Icon(
-                                        Icons.circle,
-                                        color: Color.fromARGB(255, 230, 62, 33),
-                                        size: 15,
-                                      ),
-                                      Text(
-                                        'AVAILABLE FOR JOB',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            color: Color.fromARGB(
-                                                255, 192, 192, 192)),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Mobile Engineer',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color:
-                                          Color.fromARGB(255, 192, 192, 192)),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  width: 128.0,
-                                  height: 128.0,
-                                  margin: const EdgeInsets.only(
-                                    top: 20.0,
-                                    bottom: 20.0,
-                                  ),
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black26,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/IMG_2598.jpg',
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Hi, i\'m Isaac',
-                                  style: TextStyle(
-                                      fontSize: 25, color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              width: 400,
-                              child: Text(
-                                  'Building pixel-perfect mobile & web experiences. '
-                                  'Focused on clean architecture, fluid animations, and interfaces that feel alive.',
-                                  style: GoogleFonts.inter(
-                                      color:
-                                          Color.fromARGB(255, 192, 192, 192)),
-                                  textAlign: TextAlign.start,
-                                  softWrap: true),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Container(
-                                      height: 30,
-                                      width: 67,
-                                      decoration: BoxDecoration(
-                                        color: Color.fromARGB(255, 230, 62, 33),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color:
-                                                Colors.white.withOpacity(0.2),
-                                            spreadRadius: 2,
-                                            blurRadius: 5,
-                                            offset: Offset(0,
-                                                3), // horizontal, vertical shadow offset
-                                          ),
-                                        ],
-                                      ),
-                                      child: TextButton(
-                                          onPressed: _handleMenuButtonPressed,
-                                          child: Text(
-                                            'Hire Me',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white),
-                                          ))),
-                                ])
-                          ],
-                        )),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MobileApps()));
-                  },
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Bounceable(
+                  onTap: () {},
                   child: Container(
-                      height: 430,
+                      height: 500,
                       width: 400,
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
@@ -379,94 +211,9 @@ class _ProjectState extends State<Project> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.arrow_circle_up_rounded,
-                                color: Color.fromARGB(255, 230, 62, 33),
-                                size: 20,
-                              ),
                               SizedBox(
                                 width: 10,
                               ),
-                              Text(
-                                'Mobile App',
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color.fromARGB(255, 192, 192, 192)),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Image.asset('assets/images/Mockup.png')
-                        ],
-                      )),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Web()));
-                  },
-                  child: Container(
-                      height: 350,
-                      width: 400,
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 27, 27, 27),
-                          border: Border.all(
-                              color: Color.fromARGB(255, 38, 38, 38), width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.arrow_circle_up_rounded,
-                                color: Color.fromARGB(255, 230, 62, 33),
-                                size: 20,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Web App',
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color.fromARGB(255, 192, 192, 192)),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 50,
-                          ),
-                          Image.asset('assets/images/groupweb.png', height: 200)
-                        ],
-                      )),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextButton(
-                    onPressed: () {},
-                    child: Bounceable(
-                      onTap: () {},
-                      child: Container(
-                          height: 150,
-                          width: 400,
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 27, 27, 27),
-                              border: Border.all(
-                                  color: Color.fromARGB(255, 38, 38, 38),
-                                  width: 1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          child: Column(
-                            children: [
                               Container(
                                 height: 30,
                                 width: 150,
@@ -496,73 +243,318 @@ class _ProjectState extends State<Project> {
                                     )
                                   ],
                                 ),
-                              ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
                               SizedBox(
-                                height: 20,
+                                width: 10,
                               ),
-                              Row(
+                              Text(
+                                'Mobile Engineer',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color.fromARGB(255, 192, 192, 192)),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                width: 128.0,
+                                height: 128.0,
+                                margin: const EdgeInsets.only(
+                                  top: 20.0,
+                                  bottom: 20.0,
+                                ),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  color: Colors.black26,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/IMG_2598.jpg',
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Hi, i\'m Isaac',
+                                style: TextStyle(
+                                    fontSize: 25, color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            width: 400,
+                            child: Text(
+                                'Building pixel-perfect mobile & web experiences. '
+                                'Focused on clean architecture, fluid animations, and interfaces that feel alive.',
+                                style: GoogleFonts.inter(
+                                    color: Color.fromARGB(255, 192, 192, 192)),
+                                textAlign: TextAlign.start,
+                                softWrap: true),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                    height: 30,
+                                    width: 67,
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 230, 62, 33),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.white.withOpacity(0.2),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(0,
+                                              3), // horizontal, vertical shadow offset
+                                        ),
+                                      ],
+                                    ),
+                                    child: TextButton(
+                                        onPressed: _handleMenuButtonPressed,
+                                        child: Text(
+                                          'Hire Me',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white),
+                                        ))),
+                              ])
+                        ],
+                      )),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MobileApps()));
+                },
+                child: Container(
+                    height: 430,
+                    width: 400,
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 27, 27, 27),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 38, 38, 38), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.arrow_circle_up_rounded,
+                              color: Color.fromARGB(255, 230, 62, 33),
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Mobile App',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: Color.fromARGB(255, 192, 192, 192)),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Image.asset('assets/images/Mockup.png')
+                      ],
+                    )),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Web()));
+                },
+                child: Container(
+                    height: 350,
+                    width: 400,
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 27, 27, 27),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 38, 38, 38), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.arrow_circle_up_rounded,
+                              color: Color.fromARGB(255, 230, 62, 33),
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Web App',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: Color.fromARGB(255, 192, 192, 192)),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Image.asset('assets/images/groupweb.png', height: 200)
+                      ],
+                    )),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: Bounceable(
+                    onTap: () {},
+                    child: Container(
+                        height: 150,
+                        width: 400,
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 27, 27, 27),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 38, 38, 38),
+                                width: 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                  color: Color.fromARGB(255, 22, 22, 22),
+                                  border: Border.all(
+                                      width: 2,
+                                      color: Color.fromARGB(255, 38, 38, 38))),
+                              child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  TextButton(
-                                      onPressed: _launchgithub,
-                                      child: Text(
-                                        'GitHub',
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            color: Color.fromARGB(
-                                                255, 230, 62, 33),
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                  TextButton(
-                                      onPressed: _launchEmail,
-                                      child: Text(
-                                        'Mail',
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            color: Color.fromARGB(
-                                                255, 192, 192, 192),
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'GitHub',
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            color: Color.fromARGB(
-                                                255, 192, 192, 192),
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                  Icon(
+                                    Icons.circle,
+                                    color: Color.fromARGB(255, 230, 62, 33),
+                                    size: 15,
+                                  ),
+                                  Text(
+                                    'AVAILABLE FOR JOB',
+                                    style: TextStyle(
+                                        fontSize: 10,
+                                        color:
+                                            Color.fromARGB(255, 192, 192, 192)),
+                                  )
                                 ],
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                            ],
-                          )),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                TextButton(
+                                    onPressed: _launchgithub,
+                                    child: Text(
+                                      'GitHub',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          color:
+                                              Color.fromARGB(255, 230, 62, 33),
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                TextButton(
+                                    onPressed: _launchEmail,
+                                    child: Text(
+                                      'Mail',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          color: Color.fromARGB(
+                                              255, 192, 192, 192),
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'GitHub',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          color: Color.fromARGB(
+                                              255, 192, 192, 192),
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        )),
+                  )),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                child: Text('Thank You!!',
+                    style: GoogleFonts.alfaSlabOne(
+                      fontSize: 30,
                     )),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                  child: Text('Thank You!!',
-                      style: GoogleFonts.alfaSlabOne(
-                        fontSize: 30,
-                      )),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
-          )),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   void _handleMenuButtonPressed() {
-    // NOTICE: Manage Advanced Drawer state through the Controller.
-    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
     _advancedDrawerController.showDrawer();
   }
 }
