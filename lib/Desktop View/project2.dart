@@ -190,7 +190,7 @@ class _Project2State extends State<Project2> {
                               width: 10,
                             ),
                             Text(
-                              'Flutter Developer',
+                              'Mobile Engineer',
                               style: TextStyle(
                                   fontSize: 17,
                                   color: Color.fromARGB(255, 192, 192, 192)),

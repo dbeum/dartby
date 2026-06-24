@@ -258,7 +258,7 @@ class _ProjectState extends State<Project> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'FLutter Developer',
+                                  'Mobile Engineer',
                                   style: TextStyle(
                                       fontSize: 17,
                                       color:
