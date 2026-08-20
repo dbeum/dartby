@@ -259,7 +259,7 @@ class _MobileAppsState extends State<MobileApps> {
                         ),
                         _buildProjectCard(
                           index: 4,
-                          title: 'FraudWatch360',
+                          title: 'FraudSpar360',
                           subtitle: 'Fraud protection app',
                           tag: 'Android & iOS',
                           tagColor: Colors.blue,
@@ -336,7 +336,7 @@ class _MobileAppsState extends State<MobileApps> {
                         const SizedBox(height: 16),
                         _buildProjectCard(
                           index: 2,
-                          title: 'FraudWatch360',
+                          title: 'FraudSpar360',
                           subtitle: 'Fraud protection app',
                           tag: 'Android & iOS',
                           tagColor: Colors.blue,

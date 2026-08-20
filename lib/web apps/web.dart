@@ -23,7 +23,7 @@ class _WebState extends State<Web> {
     }
   }
 
-  final Uri projectUrl = Uri.parse('https://project-p-48c57.web.app');
+  final Uri projectUrl = Uri.parse('https://oversizednft-d66b2.web.app/');
 
   Future<void> _launchproject() async {
     if (!await launchUrl(projectUrl, mode: LaunchMode.externalApplication)) {
@@ -229,7 +229,7 @@ class _WebState extends State<Web> {
                   Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/o_logo.png',
                         height: 100,
                       )),
                   Row(
@@ -248,13 +248,13 @@ class _WebState extends State<Web> {
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: Image.asset(
-                                  'assets/images/projectm.png',
+                                  'assets/images/oversizednft.png',
                                   height: 250,
                                 ))),
                       ),
                       Column(
                         children: [
-                          Text('Moon Portfolio',
+                          Text('OversizedNft',
                               style: GoogleFonts.sanchez(
                                   textStyle: const TextStyle(
                                 fontWeight: FontWeight.w900,
@@ -262,7 +262,7 @@ class _WebState extends State<Web> {
                           Container(
                             width: 170,
                             child: Text(
-                              'Launch Your Personal Website in Minutes.Pick a design, add your info — we’ll handle the rest. Create a stunning personal website effortlessly with ready-made templates, customized to showcase your work, identity, or brand in just a few clicks.',
+                              'Website for oversizednft',
                               style: TextStyle(fontSize: 12),
                               textAlign: TextAlign.center,
                               softWrap: true,
@@ -470,7 +470,7 @@ class _WebState extends State<Web> {
                   Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/o_logo.png',
                         height: 100,
                       )),
                   TextButton(
@@ -487,13 +487,13 @@ class _WebState extends State<Web> {
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.asset(
-                              'assets/images/project.png',
+                              'assets/images/o1.png',
                               height: 300,
                             ))),
                   ),
                   Column(
                     children: [
-                      Text('Moon Portfolio',
+                      Text('OversizedNft',
                           style: GoogleFonts.sanchez(
                               textStyle: const TextStyle(
                             fontWeight: FontWeight.w900,
@@ -501,7 +501,7 @@ class _WebState extends State<Web> {
                       Container(
                         width: 400,
                         child: Text(
-                          'Launch Your Personal Website in Minutes.Pick a design, add your info — we’ll handle the rest. Create a stunning personal website effortlessly with ready-made templates, customized to showcase your work, identity, or brand in just a few clicks.',
+                          'Website for oversizednft',
                           style: TextStyle(fontSize: 12),
                           textAlign: TextAlign.center,
                           softWrap: true,

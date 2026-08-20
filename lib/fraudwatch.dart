@@ -19,8 +19,9 @@ class _FraudwatchState extends State<Fraudwatch> {
     'assets/images/fw5.png',
     'assets/images/fw6.png',
   ];
-  final Uri playstoreUrl =
-      Uri.parse('https://play.google.com/store/apps/details?id=com.fw360.uk');
+  final Uri playstoreUrl = Uri.parse(
+    'https://play.google.com/store/apps/details?id=com.fw360.uk',
+  );
 
   Future<void> _launchplaystore() async {
     if (!await launchUrl(playstoreUrl, mode: LaunchMode.externalApplication)) {
@@ -28,8 +29,9 @@ class _FraudwatchState extends State<Fraudwatch> {
     }
   }
 
-  final Uri appstoreUrl =
-      Uri.parse('https://apps.apple.com/ng/app/fraud-watch-360/id6759293776');
+  final Uri appstoreUrl = Uri.parse(
+    'https://apps.apple.com/ng/app/fraud-watch-360/id6759293776',
+  );
 
   Future<void> _launchappstore() async {
     if (!await launchUrl(appstoreUrl, mode: LaunchMode.externalApplication)) {
@@ -57,8 +59,9 @@ class _FraudwatchState extends State<Fraudwatch> {
                         width: 7,
                         height: 7,
                         decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 230, 62, 33),
-                            shape: BoxShape.circle),
+                          color: Color.fromARGB(255, 230, 62, 33),
+                          shape: BoxShape.circle,
+                        ),
                       ),
                       const SizedBox(width: 10),
                       Text(
@@ -74,7 +77,7 @@ class _FraudwatchState extends State<Fraudwatch> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    "Fraud Watch 360",
+                    "FraudSpar 360",
                     style: GoogleFonts.playfairDisplay(
                       color: Colors.white,
                       fontSize: 49,
@@ -92,30 +95,28 @@ class _FraudwatchState extends State<Fraudwatch> {
                       height: 1.7,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   GestureDetector(
                     onTap: _launchplaystore,
                     child: Text(
                       'View on Playstore',
                       style: TextStyle(
-                          color: Color.fromARGB(255, 230, 62, 33),
-                          decoration: TextDecoration.underline,
-                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
+                        color: Color.fromARGB(255, 230, 62, 33),
+                        decoration: TextDecoration.underline,
+                        decorationColor: Color.fromARGB(255, 230, 62, 33),
+                      ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   GestureDetector(
                     onTap: _launchappstore,
                     child: Text(
                       'View on Appstore',
                       style: TextStyle(
-                          color: Color.fromARGB(255, 230, 62, 33),
-                          decoration: TextDecoration.underline,
-                          decorationColor: Color.fromARGB(255, 230, 62, 33)),
+                        color: Color.fromARGB(255, 230, 62, 33),
+                        decoration: TextDecoration.underline,
+                        decorationColor: Color.fromARGB(255, 230, 62, 33),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 48),
@@ -132,8 +133,8 @@ class _FraudwatchState extends State<Fraudwatch> {
                       ),
                       const SizedBox(width: 16),
                       Expanded(
-                          child:
-                              Container(height: 1, color: Color(0xFF2A2A3A))),
+                        child: Container(height: 1, color: Color(0xFF2A2A3A)),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -163,8 +164,11 @@ class _FraudwatchState extends State<Fraudwatch> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Icon(Icons.phone_android_rounded,
-                                      color: Color(0xFF2A2A3A), size: 36),
+                                  const Icon(
+                                    Icons.phone_android_rounded,
+                                    color: Color(0xFF2A2A3A),
+                                    size: 36,
+                                  ),
                                   const SizedBox(height: 10),
                                   Text(
                                     'Screen ${i + 1}',
@@ -184,8 +188,11 @@ class _FraudwatchState extends State<Fraudwatch> {
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      const Icon(Icons.swipe_rounded,
-                          color: Color(0xFF8A8A9A), size: 13),
+                      const Icon(
+                        Icons.swipe_rounded,
+                        color: Color(0xFF8A8A9A),
+                        size: 13,
+                      ),
                       const SizedBox(width: 6),
                       Text(
                         'Swipe to see more  ·  tap to expand',
@@ -208,7 +215,10 @@ class _FraudwatchState extends State<Fraudwatch> {
   }
 
   void _openFullscreen(
-      BuildContext context, List<String> images, int startIndex) {
+    BuildContext context,
+    List<String> images,
+    int startIndex,
+  ) {
     Navigator.push(
       context,
       PageRouteBuilder(
@@ -272,8 +282,11 @@ class _FullscreenGalleryState extends State<_FullscreenGallery> {
                       color: Color(0xFF1A1A26),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: const Icon(Icons.image_not_supported_outlined,
-                        color: Color(0xFF2A2A3A), size: 48),
+                    child: const Icon(
+                      Icons.image_not_supported_outlined,
+                      color: Color(0xFF2A2A3A),
+                      size: 48,
+                    ),
                   ),
                 ),
               ),
@@ -291,8 +304,11 @@ class _FullscreenGalleryState extends State<_FullscreenGallery> {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Color(0xFF2A2A3A)),
                 ),
-                child: const Icon(Icons.close_rounded,
-                    color: Color(0xFF8A8A9A), size: 20),
+                child: const Icon(
+                  Icons.close_rounded,
+                  color: Color(0xFF8A8A9A),
+                  size: 20,
+                ),
               ),
             ),
           ),
