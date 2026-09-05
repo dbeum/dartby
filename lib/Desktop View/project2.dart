@@ -156,7 +156,7 @@ class _Project2State extends State<Project2> {
                   transitionDuration: const Duration(milliseconds: 200),
                 );
               },
-              child: Icon(Icons.menu, color: Colors.black, size: 30),
+              child: Icon(Icons.menu, color: Colors.white, size: 30),
             ),
           ],
           backgroundColor: Color.fromARGB(255, 22, 22, 22),
