@@ -274,9 +274,8 @@ class _Project2State extends State<Project2> {
                                 color: Colors.black26,
                                 shape: BoxShape.circle,
                               ),
-                              child: Image.asset(
-                                'assets/images/portrait.jpg',
-                              ),
+                              child: Image.asset('assets/images/portrait.jpg',
+                                  fit: BoxFit.cover),
                             ),
                           ],
                         ),
