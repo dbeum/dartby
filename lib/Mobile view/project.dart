@@ -282,7 +282,7 @@ class _ProjectState extends State<Project> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
-                                  'assets/images/IMG_2598.jpg',
+                                  'assets/images/portrait.jpg',
                                 ),
                               ),
                             ],
