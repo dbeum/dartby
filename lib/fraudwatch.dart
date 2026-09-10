@@ -12,12 +12,12 @@ class Fraudwatch extends StatefulWidget {
 
 class _FraudwatchState extends State<Fraudwatch> {
   static const List<String> _images = [
-    'assets/images/fw1.png',
+    'assets/images/fw1.PNG',
     'assets/images/fw2.png',
-    'assets/images/fw3.png',
-    'assets/images/fw4.png',
-    'assets/images/fw5.png',
-    'assets/images/fw6.png',
+    'assets/images/fw3.PNG',
+    'assets/images/fw4.PNG',
+    'assets/images/fw5.PNG',
+    'assets/images/fw6.PNG',
   ];
   final Uri playstoreUrl = Uri.parse(
     'https://play.google.com/store/apps/details?id=com.fw360.uk',
